@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="dragontrial.css">
+    <meta charset="UTF-8">
+    <title>真龙试炼</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" async></script>
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js" async></script>
+    <script type="module">
+        import wyrmprints from './data/wyrmprints.js'
+        import dragons from './data/dragons.js'
+        import adventurers_5 from './data/adventurers_5.js'
+        import adventurers_4 from './data/adventurers_4.js'
+        import adventurers_3 from './data/adventurers_3.js'
+        import {initWindTrialTeam,initWaterTrialTeam,initFlameTrialTeam} from './data/dragontrial.js'
+
+        var adventurers = Object.assign(adventurers_5 ,adventurers_4 ,adventurers_3);
+
+        $(document).ready(function() {
+        	initWindTrialTeam(adventurers,dragons,wyrmprints);
+        	initWaterTrialTeam(adventurers,dragons,wyrmprints);
+        	initFlameTrialTeam(adventurers,dragons,wyrmprints);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="dungeons">
+        <div>
+            <picture class="trial_img">
+                <source src="./images/dungeons/dragon_trial_0.webp" type="image/webp">
+                <img src="./images/dungeons/dragon_trial_0.png">
+            </picture>
+        </div>
+        <div class="team">
+            <table id="wind-team-table">
+                <tr style="background-color: #9dd3fa;">
+                    <th width="25%">推荐人物</th>
+                    <th width="25%">龙</th>
+                    <th width="25%">护肤</th>
+                    <th width="25%">联效EX</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dungeons">
+        <div>
+            <picture class="trial_img">
+                <source src="./images/dungeons/dragon_trial_1.webp" type="image/webp">
+                <img src="./images/dungeons/dragon_trial_1.png">
+            </picture>
+        </div>
+        <div class="team">
+            <table id="water-team-table">
+                <tr style="background-color: #9dd3fa;">
+                    <th width="25%">推荐人物</th>
+                    <th width="25%">龙</th>
+                    <th width="25%">护肤</th>
+                    <th width="25%">联效EX</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dungeons">
+        <div>
+            <picture class="trial_img">
+                <source src="./images/dungeons/dragon_trial_2.webp" type="image/webp">
+                <img src="./images/dungeons/dragon_trial_2.png">
+            </picture>
+        </div>
+        <div class="team">
+            <table id="flame-team-table">
+                <tr style="background-color: #9dd3fa;">
+                    <th width="25%">推荐人物</th>
+                    <th width="25%">龙</th>
+                    <th width="25%">护肤</th>
+                    <th width="25%">联效EX</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dungeons">
+        <div>
+            <picture class="trial_img">
+                <source src="./images/dungeons/dragon_trial_3.webp" type="image/webp">
+                <img src="./images/dungeons/dragon_trial_3.png">
+            </picture>
+        </div>
+        <div class="team">
+            <table id="light-team-table">
+                <tr style="background-color: #9dd3fa;">
+                    <th width="25%">推荐人物</th>
+                    <th width="25%">龙</th>
+                    <th width="25%">护肤</th>
+                    <th width="25%">联效EX</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dungeons">
+        <div>
+            <picture class="trial_img">
+                <source src="./images/dungeons/dragon_trial_4.webp" type="image/webp">
+                <img src="./images/dungeons/dragon_trial_4.png">
+            </picture>
+        </div>
+        <div class="team">
+            <table id="shadow-team-table">
+                <tr style="background-color: #9dd3fa;">
+                    <th width="25%">推荐人物</th>
+                    <th width="25%">龙</th>
+                    <th width="25%">护肤</th>
+                    <th width="25%">联效EX</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

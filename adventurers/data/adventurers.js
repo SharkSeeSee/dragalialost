@@ -1,5 +1,5 @@
 //筛选角色
-function filterAll(adlist, raritys, elements, weapons, effects, isRestriction, isBreak) {
+function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
     // body...
     var result = [];
 
@@ -15,10 +15,21 @@ function filterAll(adlist, raritys, elements, weapons, effects, isRestriction, i
         weapons = ['Sword', 'Blade', 'Dagger', 'Axe', 'Lance', 'Bow', 'Wand', 'Staff'];
     }
 
+    if (resWords.length == 0) {
+        resWords = ['ablilities_101', 'ablilities_102', 'ablilities_105', 'ablilities_109', 'ablilities_110', 'ablilities_114', 'ablilities_115', 'ablilities_118', 'ablilities_119'];
+    }
+
+    resWords = resExpand(resWords);
+
+    console.log(resWords);
+
     for (var key in adlist) {
 
-        if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 && elements.indexOf(adlist[key].element) > -1) {
+        if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 
+            && elements.indexOf(adlist[key].element) > -1 && resWords.indexOf(adlist[key].ability2[0]) > -1) {
+
             result.push(adlist[key]);
+
         }
     }
 
@@ -53,15 +64,76 @@ function filterAll(adlist, raritys, elements, weapons, effects, isRestriction, i
     return result;
 }
 
-function filterRes(adlist, isRestriction) {
-    var tempResult = [];
-    for (var key in adlist) {
-        if ((isRestriction == true) && (adlist[key].restriction == true)) {
-            result.push(adlist[key]);
+function resExpand(resWords) {
+
+    var result = [];
+
+    for (var i = 0; i < resWords.length; i++) {
+        switch (resWords[i]) {
+            case 'ablilities_101':
+                result.push('ablilities_101');
+                result.push('ablilities_103');
+                result.push('ablilities_104');
+                break;
+            case 'ablilities_102':
+                result.push('ablilities_100');
+                result.push('ablilities_102');
+                result.push('ablilities_104');
+                result.push('ablilities_107');
+                break;
+            case 'ablilities_105':
+                result.push('ablilities_105');
+                result.push('ablilities_106');
+                result.push('ablilities_108');
+                break;
+            case 'ablilities_109':
+                result.push('ablilities_109');
+                result.push('ablilities_111');
+                result.push('ablilities_112');
+                break;
+            case 'ablilities_110':
+                result.push('ablilities_110');
+                result.push('ablilities_111');
+                result.push('ablilities_113');
+                break;
+            case 'ablilities_114':
+                result.push('ablilities_114');
+                result.push('ablilities_116');
+                result.push('ablilities_117');
+                break;
+            case 'ablilities_115':
+                result.push('ablilities_115');
+                result.push('ablilities_117');
+                break;
+            case 'ablilities_118':
+                result.push('ablilities_118');
+                result.push('ablilities_120');
+                result.push('ablilities_121');
+                break;
+            case 'ablilities_119':
+                result.push('ablilities_119');
+                result.push('ablilities_121');
+                break;
         }
     }
+    return result;
+}
+//抗性转换
+function resfilter(adslist, resWords) {
+    // body...
+    const filterwords = {
+        'ablilities_101': ['ablilities_101', 'ablilities_102'],
+    }
 
-    return tempResult;
+    var result = [];
+
+
+
+    for (var i = Things.length - 1; i >= 0; i--) {
+        Things[i]
+    }
+
+    filterwords.filter
 }
 
 // 添加角色列表
@@ -81,19 +153,18 @@ function add_item(list, dragons, wyrmprints) {
 
         var div_left = document.createElement("div");
 
-        var button1 = document.createElement('button');
+        var button1 = document.createElement('picture');
 
-        button1.setAttribute('type', 'button');
         button1.setAttribute('class', 'image-button');
 
         var source1 = document.createElement('source');
 
-        source1.setAttribute('data-original', './images/adventures/' + list[key].image + '.webp');
+        source1.setAttribute('srcset', './images/adventures/' + list[key].image + '.webp');
         source1.setAttribute('type', 'image/webp');
 
         var img1 = document.createElement('img');
 
-        img1.setAttribute('data-original', './images/adventures/' + list[key].image + '.webp');
+        img1.setAttribute('data-original', './images/adventures/' + list[key].image + '.png');
         img1.setAttribute('alt', list[key].name);
         img1.setAttribute('title', list[key].name);
         img1.setAttribute('loading', 'auto');
@@ -136,7 +207,7 @@ function add_item(list, dragons, wyrmprints) {
 
             var ex_source_1 = document.createElement('source');
 
-            ex_source_1.setAttribute('data-original', './images/other/' + list[key].ability1[0] + '.png');
+            ex_source_1.setAttribute('srcset', './images/other/' + list[key].ability1[0] + '.webp');
             ex_source_1.setAttribute('type', 'image/webp');
 
             var ex_img_1 = document.createElement('img');
@@ -159,7 +230,7 @@ function add_item(list, dragons, wyrmprints) {
 
             var ex_source_2 = document.createElement('source');
 
-            ex_source_2.setAttribute('data-original', './images/other/' + list[key].ability2[0] + '.png');
+            ex_source_2.setAttribute('srcset', './images/other/' + list[key].ability2[0] + '.webp');
             ex_source_2.setAttribute('type', 'image/webp');
 
             var ex_img_2 = document.createElement('img');
@@ -208,7 +279,7 @@ function add_item(list, dragons, wyrmprints) {
         div2.appendChild(div_right);
     }
 
-    $('img').lazyload({effect: "fadeIn",threshold : 200,container :$("#role-list")});
+    $('img').lazyload({ effect: "fadeIn", threshold: 200, container: $("#role-list") });
 
     bindEvent(list, dragons, wyrmprints);
 
@@ -260,7 +331,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var img_1 = document.createElement('img');
 
-    img_1.setAttribute('src', './images/dragon/' + dragons[keyDic.dragon].icon + '.webp');
+    img_1.setAttribute('src', './images/dragon/' + dragons[keyDic.dragon].icon + '.png');
     img_1.setAttribute('alt', dragons[keyDic.dragon].name);
     img_1.setAttribute('title', dragons[keyDic.dragon].name);
     img_1.setAttribute('loading', 'auto');
@@ -270,7 +341,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     pic_1.appendChild(img_1);
 
     var div_d_text = document.createElement('div');
-    div_d_text.setAttribute('style','text-align:center;');
+    div_d_text.setAttribute('style', 'text-align:center;');
     div_d_text.innerText = dragons[keyDic.dragon].name;
 
     div_dragon.appendChild(pic_1);
@@ -289,9 +360,9 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var div_3 = document.createElement('div');
     //1号护符
-    
+
     var div_hf_1 = document.createElement('div');
-    div_hf_1.setAttribute('style','float:left;width:130px;text-align:center;');
+    div_hf_1.setAttribute('style', 'float:left;width:130px;text-align:center;');
 
     var pic_2 = document.createElement('picture');
     pic_2.setAttribute('style', 'width:100px;height:100px;');
@@ -313,7 +384,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     pic_2.appendChild(img_2);
 
     var div_text_1 = document.createElement('div');
-    div_text_1.setAttribute('style','text-align:center;');
+    div_text_1.setAttribute('style', 'text-align:center;');
     div_text_1.innerText = wyrmprints[keyDic.hf1].name;
 
     div_hf_1.appendChild(pic_2);
@@ -321,7 +392,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     //2号护符
     var div_hf_2 = document.createElement('div');
-    div_hf_2.setAttribute('style','float:left;width:130px;text-align:center;margin-left:20px;');
+    div_hf_2.setAttribute('style', 'float:left;width:130px;text-align:center;margin-left:20px;');
 
     var pic_3 = document.createElement('picture');
     pic_3.setAttribute('style', 'width:100px;height:100px;');
@@ -343,7 +414,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     pic_3.appendChild(img_3);
 
     var div_text_2 = document.createElement('div');
-    div_text_2.setAttribute('style','text-align:center;');
+    div_text_2.setAttribute('style', 'text-align:center;');
     div_text_2.innerText = wyrmprints[keyDic.hf2].name;
 
     div_hf_2.appendChild(pic_3);
@@ -374,7 +445,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     // mtable.appendChild(tr_4);
 
     // var td_1 = document.createElement('td');
-    // td_1.innerText = '技能一 	Lv.Max';
+    // td_1.innerText = '技能一    Lv.Max';
     // td_1.setAttribute('width', '350px');
     // td_1.setAttribute('height', '30px');
     // td_1.setAttribute('align', 'left');
@@ -387,7 +458,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     // td_2.innerText = keyDic.skill1;
 
     // var td_3 = document.createElement('td');
-    // td_3.innerText = '技能二 	Lv.Max';
+    // td_3.innerText = '技能二    Lv.Max';
     // td_3.setAttribute('width', '350px');
     // td_3.setAttribute('height', '30px');
     // td_3.setAttribute('align', 'left');
@@ -417,17 +488,16 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
     var elementWords = [];
     var rarityWords = [];
     var effectWords = [];
+    var resWords = [];
     var isRes = false;
     var isBreak = false;
     var result;
 
     add_item(adventurers, dragons, wyrmprints);
 
-
-
     $("input[name='Rarity']").each(function(index, el) {
 
-    	console.log($(this));
+        console.log($(this));
         $(this).on('change', function(event) {
             /* Act on the event */
             if ($(this).is(':checked')) {
@@ -436,7 +506,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), rarityWords);
                 rarityWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -451,7 +521,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), elementWords);
                 elementWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -466,7 +536,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), weaponWords);
                 weaponWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -480,7 +550,21 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), effectWords);
                 effectWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
+            $('#role-list').empty();
+            add_item(result, dragons, wyrmprints);
+        });
+    });
+
+    $("input[name='Resistance']").each(function(index, el) {
+        $(this).on('change', function(event) {
+            if ($(this).is(':checked')) {
+                resWords.push($(this).attr('value'));
+            } else {
+                var t = $.inArray($(this).attr('value'), resWords);
+                resWords.splice(t, 1);
+            }
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -501,4 +585,6 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
         $('#role-list').empty();
         add_item(result, dragons, wyrmprints);
     });
+
+
 }

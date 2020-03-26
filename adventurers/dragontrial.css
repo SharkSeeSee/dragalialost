@@ -1,0 +1,41 @@
+body {
+    background-color: #e6e6e6;
+    overflow-x: scroll;
+    overflow-y: scroll;
+	white-space: nowrap;
+}
+
+.dungeons {
+	display:inline-block;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    width: 500px;
+    height: 1000px;
+    box-shadow: darkgrey 0px 1px 2px 1px;
+
+}
+
+.trial_img img {
+    width: 500px;
+    height: 263px;
+}
+
+.team table{
+	width: 500px;
+
+    border-collapse: collapse;
+    align:center;
+}
+
+th {
+    display: table-cell;
+    border: 1px solid #aaa;
+    color: white;
+    font-size: 14px;
+}
+
+td {
+	display: table-cell;
+    border: 1px solid #aaa;
+}

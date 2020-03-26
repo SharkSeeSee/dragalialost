@@ -406,7 +406,7 @@ const adventurers_5 = {
         image: 'rarity5/1020402',
         dragon: '20002',
         hf1:'10202',
-        hf2:'10203',
+        hf2:'10117',
         ability1: ['ablilities_04', '防御力+15%'],
         ability2: ['ablilities_108', '烧伤、昏迷抗性+100%'],
         maxlevel: 80,

@@ -1,177 +1,80 @@
-body {
-    display: flex;
-}
-
-div {
-    display: block;
-}
-
-/*角色列表*/
-#role-list {
-    position: absolute;
+.top {
+ 	position:absolute;
+    width: 220px;
+    /*固定在顶部*/
     top: 0;
-    left: 0px;
+    /*离顶部的距离为0*/
+    left: 0;
     bottom: 0;
-    right: 540px;
-
+    background-color: #333333;
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-
-    overflow-x: hidden;
-    overflow-y: scroll;
-
+    flex-direction: column;
 }
 
-.item-content
+.middle
 {
-    display: flex;
-
-    width: 250px;
-    height: 100px;
-    padding: 5px;
-    margin: 5px 5px;
-    cursor: pointer;
-    box-shadow: darkgrey 0px 1px 1px 1px; //边框阴影
-    border: 1px solid darkgrey;
-    border-radius: 5px;
-    white-space: pre-line;
-}
-
-.item-content:hover
-{
-    box-shadow: #99CCFF 0px 2px 2px 2px; //边框阴影
-}
-
-.image-button {
-    width: 100px;
-    height: auto;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.image-button img {
-    width: 100%;
+	position:absolute;
+	top: 0;
+	left: 220px;
+	bottom: 0px;
+	right: 0px;
     height: 100%;
 }
 
-.alert-view
+.menutop a img
 {
-    display: flex;
-    flex-direction:column;
-    width: 435px;
-    height: 150px;
-    background-color: white;
-
+	padding: 10px;
+	width: 200px;
+	height: auto;
 }
 
-/*筛选列表*/
-.options {
-    position: absolute;
-    top: 0;
-    bottom: 0px;
-    right: 0px;
-    width: 500px;
-    display: grid;
-    grid-template-columns: 500px;
-    grid-template-rows: 80px 80px 80px;
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #EAEAEA;
-}
-
-.options_star {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    grid-gap: 8px;
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
-}
-
-.options_element {
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
-}
-
-.options_weapon {
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
-}
-
-img,
-picture {
-    user-select: none;
-    height: 25px;
-}
-
-.checkbox {
-    /*border: 5px solid red;*/
-}
-
-.checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.checkbox label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    box-shadow: darkgrey 0px 1px 2px 1px; //边框阴影
-}
-
-.checkbox input[type="checkbox"]+label {
+.menu {
     width: auto;
     height: auto;
-    background-color: #FFFFCC;
-    align-items: center;
-
+    /*宽度也改为自动*/
+    list-style-type: none;
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* margin-top: 0;          */
+    padding: 0;
+    background-color: #999999;
+    border-radius: 8px;
 }
 
-.checkbox input[type="checkbox"]:checked+label {
-    width: auto;
-    height: auto;
-    background-color: #99CCFF;
-    align-items: center;
+.menu li {
+	width: 200px;
+	height: auto;
+    font-size: 20px;
+    color: #ffffff;
 }
 
-.options-other
-{
-    display: flex;
-    flex-direction: row;
-}
-
-.effect
-{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.effect input
-{
+.menu-item a {
     display: block;
-    float: left;
-    zoom:150%;
-    font-size: 16px;
+    /* 把链接显示为块元素可使整个链接区域可点击 */
     color: white;
-    background-color: white;
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none;
+    padding: 10px 20px;
+    /* 去除下划线 */
 }
 
-.effect label
-{
-    user-select: none;
+.menu-item a:hover {
+    color: #ed5a65;
+    background-color: #ffffff;
+    padding: 10px 20px;
 }
+
+.active {
+    float: left;
+    margin-right: 5%;
+    /* 两个li之间的距离*/
+    position: relative;
+    overflow: hidden;
+    font-size: 20px;
+    
+}
+

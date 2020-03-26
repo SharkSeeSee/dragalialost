@@ -1,260 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <meta charset="UTF-8">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>角色</title>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
-    <script type="module">
-        import wyrmprints from './data/wyrmprints.js'
-        import dragons from './data/dragons.js'
-        import adventurers_5 from './data/adventurers_5.js'
-        import adventurers_4 from './data/adventurers_4.js'
-        import adventurers_3 from './data/adventurers_3.js'
-        import { initAds } from './data/adventurers.js'
-
-        $(document).ready(function(){
-        // 开始写 jQuery 代码..
-                    initAds(adventurers_3,adventurers_4,adventurers_5,dragons,wyrmprints);
-                });
-        
+    <meta charset="utf-8">
+    <title>Dragalia Lost</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".menu li").click(function() {
+            $(this).addClass('active').siblings('').removeClass('active');
+        });
+    });
     </script>
 </head>
 
 <body>
-    <div id='role-list'>
+    <div class="top">
+    	<div class="menutop">
+    		<a href="https://dragalialost.com/" >
+    			<img src="./images/other/logo_app.png" alt="失落的龙约">
+    		</a>
+    	</div>
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="#" onclick="goToPage('adventurers.html')">人物</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="goToPage('dragontrial.html')">真龙试炼</a></li>
+            <li class="menu-item">
+                <a href="#" onclick="goToPage('agito.html')">阿基德</a>
+            </li>
+        </ul>
+        <script type="text/javascript">
+        function goToPage(param) {
+            document.getElementById('ifr1').src = param;
+        }
+        </script>
     </div>
-    <div class="options">
-        <div class="options_star">
-            <div class="checkbox">
-                <input id="checkbox_star_3" type="checkbox" name="Rarity" value="3">
-                <label for="checkbox_star_3" class="icon" title="3星">
-                    <picture>
-                        <source srcset="./images/other/star_3.webp">
-                        <img src="./images/other/star_3.webp" alt="3" title="3星">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_star_4" type="checkbox" name="Rarity" value="4">
-                <label for="checkbox_star_4" class="icon" title="4星">
-                    <picture>
-                        <source srcset="./images/other/star_4.webp">
-                        <img src="./images/other/star_4.webp" alt="4" title="4星">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_star_5" type="checkbox" name="Rarity" value="5">
-                <label for="checkbox_star_5" class="icon" title="5星">
-                    <picture>
-                        <source srcset="./images/other/star_5.webp" type="image/webp">
-                        <img src="./images/other/star_5.webp" alt="5" title="5星">
-                    </picture>
-                </label>
-            </div>
-            <script>
-            </script>
-        </div>
-        <div class="options_element">
-            <div class="checkbox">
-                <input id="checkbox_element_0" type="checkbox" name="Element" value="Fire">
-                <label for="checkbox_element_0" class="icon" title="火">
-                    <picture>
-                        <source srcset="./images/other/Element_Fire.webp" type="image/webp">
-                        <img src="./images/other/Element_Fire.webp" alt="Fire" title="火">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_element_1" type="checkbox" name="Element" value="Water">
-                <label for="checkbox_element_1" class="icon" title="水">
-                    <picture>
-                        <source srcset="./images/other/Element_Water.webp" type="image/webp">
-                        <img src="./images/other/Element_Water.webp" alt="Water" title="水">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_element_2" type="checkbox" name="Element" value="Wind">
-                <label for="checkbox_element_2" class="icon" title="风">
-                    <picture>
-                        <source srcset="./images/other/Element_Wind.webp" type="image/webp">
-                        <img src="./images/other/Element_Wind.webp" alt="Wind" title="风">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_element_3" type="checkbox" name="Element" value="Light">
-                <label for="checkbox_element_3" class="icon" title="光">
-                    <picture>
-                        <source srcset="./images/other/Element_Light.webp" type="image/webp">
-                        <img src="./images/other/Element_Light.webp" alt="Light" title="光">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_element_4" type="checkbox" name="Element" value="Shadow">
-                <label for="checkbox_element_4" class="icon" title="暗">
-                    <picture>
-                        <source srcset="./images/other/Element_Shadow.webp" type="image/webp">
-                        <img src="./images/other/Element_Shadow.webp" alt="Shadow" title="暗">
-                    </picture>
-                </label>
-            </div>
-        </div>
-        <div class="options_weapon">
-            <div class="checkbox">
-                <input id="checkbox_weapon_0" type="checkbox" name="Weapon" value="Sword">
-                <label for="checkbox_weapon_0" class="icon" title="剑">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Sword.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Sword.webp" alt="Sword" title="剑">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_1" type="checkbox" name="Weapon" value="Blade">
-                <label for="checkbox_weapon_1" class="icon" title="刀">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Blade.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Blade.webp" alt="Blade" title="刀">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_2" type="checkbox" name="Weapon" value="Dagger">
-                <label for="checkbox_weapon_2" class="icon" title="匕">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Dagger.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Dagger.webp" alt="Dagger" title="匕">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_3" type="checkbox" name="Weapon" value="Axe">
-                <label for="checkbox_weapon_3" class="icon" title="斧">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Axe.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Axe.webp" alt="Axe" title="斧">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_4" type="checkbox" name="Weapon" value="Lance">
-                <label for="checkbox_weapon_4" class="icon" title="枪">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Lance.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Lance.webp" alt="Lance" title="枪">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_5" type="checkbox" name="Weapon" value="Bow">
-                <label for="checkbox_weapon_5" class="icon" title="弓">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Bow.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Bow.webp" alt="Bow" title="弓">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_6" type="checkbox" name="Weapon" value="Wand">
-                <label for="checkbox_weapon_6" class="icon" title="魔杖">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Wand.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Wand.webp" alt="Wand" title="魔杖">
-                    </picture>
-                </label>
-            </div>
-            <div class="checkbox">
-                <input id="checkbox_weapon_7" type="checkbox" name="Weapon" value="Staff">
-                <label for="checkbox_weapon_7" class="icon" title="法杖">
-                    <picture>
-                        <source srcset="./images/other/Weapon_Staff.webp" type="image/webp">
-                        <img src="./images/other/Weapon_Staff.webp" alt="Staff" title="法杖">
-                    </picture>
-                </label>
-            </div>
-        </div>
-        <div class="options-other">
-            <div class="effect">
-                <h1 style="font-size: 18px;">技能特效</h1>
-                <div>
-                    <input id="checkbox_effect_1" type="checkbox" name="skilleffect" value="Poison">
-                    <label for="checkbox_effect_1" class="other" title="中毒特效">
-                        中毒特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_2" type="checkbox" name="skilleffect" value="Burn">
-                    <label for="checkbox_effect_2" class="other" title="烧伤特效">
-                        烧伤特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_3" type="checkbox" name="skilleffect" value="Paralysis">
-                    <label for="checkbox_effect_3" class="other" title="麻痹特效">
-                        麻痹特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_4" type="checkbox" name="skilleffect" value="Freeze">
-                    <label for="checkbox_effect_4" class="other" title="破防特效">
-                        冰冻特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_5" type="checkbox" name="skilleffect" value="Blind">
-                    <label for="checkbox_effect_5" class="other" title="致盲特效">
-                        致盲特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_6" type="checkbox" name="skilleffect" value="Bog">
-                    <label for="checkbox_effect_6" class="other" title="湿身特效">
-                        湿身特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_7" type="checkbox" name="skilleffect" value="Frostbite">
-                    <label for="checkbox_effect_7" class="other" title="冻伤特效">
-                        冻伤特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_8" type="checkbox" name="skilleffect" value="Sleep">
-                    <label for="checkbox_effect_8" class="other" title="睡眠特效">
-                        睡眠特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_9" type="checkbox" name="skilleffect" value="Stun">
-                    <label for="checkbox_effect_9" class="other" title="昏迷特效">
-                        昏迷特效
-                    </label>
-                </div>
-            </div>
-            <div class="other">
-                <h1 style="font-size: 18px;">其他</h1>
-                <div>
-                    <input id="checkbox_other_5" type="checkbox" name="Other" value="restriction">
-                    <label for="checkbox_other_5" class="other" title="限定">
-                        限定
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_other_6" type="checkbox" name="Other" value="breakthrough">
-                    <label for="checkbox_other_6" class="other" title="70环">
-                        70环
-                    </label>
-                </div>
-            </div>
-        </div>
+    <div class="middle">
+        <iframe id="ifr1" src="adventurers.html" scrolling="yes" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: 100%;"> </iframe>
     </div>
 </body>
 
