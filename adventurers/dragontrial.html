@@ -13,14 +13,12 @@
         import adventurers_5 from './data/adventurers_5.js'
         import adventurers_4 from './data/adventurers_4.js'
         import adventurers_3 from './data/adventurers_3.js'
-        import {initWindTrialTeam,initWaterTrialTeam,initFlameTrialTeam} from './data/dragontrial.js'
+        import {initTrialTeam} from './data/dragontrial.js'
 
         var adventurers = Object.assign(adventurers_5 ,adventurers_4 ,adventurers_3);
 
         $(document).ready(function() {
-        	initWindTrialTeam(adventurers,dragons,wyrmprints);
-        	initWaterTrialTeam(adventurers,dragons,wyrmprints);
-        	initFlameTrialTeam(adventurers,dragons,wyrmprints);
+        	initTrialTeam(adventurers,dragons,wyrmprints);
         });
     </script>
 </head>

@@ -2,6 +2,7 @@ body {
     background-color: #e6e6e6;
     overflow-x: hidden;
     overflow-y: scroll;
+    display: flex;
 }
 
 .dungeons {
@@ -11,8 +12,6 @@ body {
     padding: 5px;
     height: auto;
     box-shadow: darkgrey 0px 1px 2px 1px;
-
-
 }
 
 .agito_img img {

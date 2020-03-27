@@ -2,18 +2,16 @@ body {
     background-color: #e6e6e6;
     overflow-x: scroll;
     overflow-y: scroll;
-	white-space: nowrap;
+	display: flex;
 }
 
 .dungeons {
-	display:inline-block;
     background-color: white;
     margin: 5px;
     padding: 5px;
     width: 500px;
-    height: 1000px;
+    height: auto;
     box-shadow: darkgrey 0px 1px 2px 1px;
-
 }
 
 .trial_img img {
@@ -23,7 +21,6 @@ body {
 
 .team table{
 	width: 500px;
-
     border-collapse: collapse;
     align:center;
 }
@@ -33,6 +30,7 @@ th {
     border: 1px solid #aaa;
     color: white;
     font-size: 14px;
+
 }
 
 td {

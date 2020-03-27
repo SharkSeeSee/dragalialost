@@ -145,6 +145,57 @@ export function initFlameTrialTeam(adventurers, dragons, wyrmprints) {
     }
 }
 
+export function initLightTrialTeam(adventurers, dragons, wyrmprints) {
+    // body...
+    for (var i = 0; i < trial_light_advs.length; i++) {
+        var aid = trial_light_advs[i].aid;
+        var rDragons = [];
+        var rWyrmprints = [];
+
+        for (var j = 0; j < trial_light_advs[i].dragon.length; j++) {
+            var tempDragon = trial_light_advs[i].dragon[j];
+            rDragons.push(dragons[tempDragon]);
+        }
+
+        for (var k = 0; k < trial_light_advs[i].wyrmprint.length; k++) {
+            var tempWyr = trial_light_advs[i].wyrmprint[k];
+            rWyrmprints.push(wyrmprints[tempWyr]);
+        }
+
+        addItems(adventurers[aid], rDragons, rWyrmprints, 'light-team-table');
+    }
+}
+
+export function initShadowTrialTeam(adventurers, dragons, wyrmprints) {
+    // body...
+    for (var i = 0; i < trial_shadow_advs.length; i++) {
+        var aid = trial_shadow_advs[i].aid;
+        var rDragons = [];
+        var rWyrmprints = [];
+
+        for (var j = 0; j < trial_shadow_advs[i].dragon.length; j++) {
+            var tempDragon = trial_shadow_advs[i].dragon[j];
+            rDragons.push(dragons[tempDragon]);
+        }
+
+        for (var k = 0; k < trial_shadow_advs[i].wyrmprint.length; k++) {
+            var tempWyr = trial_shadow_advs[i].wyrmprint[k];
+            rWyrmprints.push(wyrmprints[tempWyr]);
+        }
+
+        addItems(adventurers[aid], rDragons, rWyrmprints, 'shadow-team-table');
+    }
+}
+
+export function initTrialTeam(adventurers, dragons, wyrmprints) {
+    // body...
+    initWindTrialTeam(adventurers, dragons, wyrmprints);
+    initWaterTrialTeam(adventurers, dragons, wyrmprints);
+    initFlameTrialTeam(adventurers, dragons, wyrmprints);
+    initLightTrialTeam(adventurers, dragons, wyrmprints);
+    initShadowTrialTeam(adventurers, dragons, wyrmprints);
+}
+
 const trial_wind_advs = [{
         aid: '1010202',
         dragon: ['10002', '10006'],
@@ -176,48 +227,141 @@ const trial_wind_advs = [{
         wyrmprint: ['10009', '10104']
     },
     {
+        aid: '1010601',
+        dragon: ['10002'],
+        wyrmprint: ['10003', '10106']
+    },
+    {
+        aid: '1010602',
+        dragon: ['10002'],
+        wyrmprint: ['10003', '10106']
+    },
+    {
+        aid: '2010501',
+        dragon: ['10004', '10005', '10008'],
+        wyrmprint: ['10117', '10210', '10203', '10115']
+    },
+    {
+        aid: '2010801',
+        dragon: ['10001', '10004', '10005', '10008'],
+        wyrmprint: ['10108', '10117']
+    },
+    {
         aid: '2010802',
-        dragon: ['40002', '50002'],
-        wyrmprint: ['10203', '10107']
+        dragon: ['10001', '10004', '10005', '10008', '40002'],
+        wyrmprint: ['10203', '10108', '10115']
     }
 ];
 
 const trial_water_advs = [{
-    aid: '1030102',
-    dragon: ['30003', '30005'],
-    wyrmprint: ['10008', '10120']
-}, {
-    aid: '1030201',
-    dragon: ['30003'],
-    wyrmprint: ['10001', '10121']
-}, {
-    aid: '2030701',
-    dragon: ['30002'],
-    wyrmprint: ['10112', '10115']
-}];
+        aid: '1030102',
+        dragon: ['30003', '30005'],
+        wyrmprint: ['10002', '10008', '10120']
+    },
+    {
+        aid: '1030201',
+        dragon: ['30003'],
+        wyrmprint: ['10001', '10121']
+    },
+    {
+        aid: '2030701',
+        dragon: ['30002'],
+        wyrmprint: ['10112', '10115']
+    },
+    {
+        aid: '1030602',
+        dragon: ['30003'],
+        wyrmprint: ['10111', '10117']
+    },
+    {
+        aid: '1030202',
+        dragon: ['30002'],
+        wyrmprint: ['10112', '10117']
+    },
+    {
+        aid: '2030602',
+        dragon: ['30003'],
+        wyrmprint: ['10003', '10205']
+    }
+];
 
 const trial_flame_advs = [{
-    aid: '1020402',
-    dragon: ['20002', '20005'],
-    wyrmprint: ['10202', '10117']
-},{
-    aid: '1020602',
-    dragon: ['20005', '20007'],
-    wyrmprint: ['10103', '10106']
-},{
-    aid: '1020701',
-    dragon: ['20003'],
-    wyrmprint: ['10009', '10120']
-},{
-    aid: '1020801',
-    dragon: ['20002','20005'],
-    wyrmprint: ['10108', '10202']
-},{
-    aid: '2020801',
-    dragon: ['20002','20005'],
-    wyrmprint: ['10108', '10117']
-},{
-    aid: '2020703',
-    dragon: ['20005'],
-    wyrmprint: ['10117', '10122']
-}];
+        aid: '1020402',
+        dragon: ['20002', '20005'],
+        wyrmprint: ['10202', '10117']
+    },
+    {
+        aid: '1020602',
+        dragon: ['20005', '20007'],
+        wyrmprint: ['10103', '10106']
+    },
+    {
+        aid: '1020701',
+        dragon: ['20003'],
+        wyrmprint: ['10009', '10120']
+    },
+    {
+        aid: '1020801',
+        dragon: ['20002', '20005'],
+        wyrmprint: ['10108', '10202']
+    },
+    {
+        aid: '2020801',
+        dragon: ['20002', '20005'],
+        wyrmprint: ['10108', '10117']
+    },
+    {
+        aid: '2020703',
+        dragon: ['20005'],
+        wyrmprint: ['10117', '10209']
+    }
+];
+
+const trial_light_advs = [{
+        aid: '1050301',
+        dragon: ['50003', '50008'],
+        wyrmprint: ['10117', '10114']
+    },
+    {
+        aid: '1050702',
+        dragon: ['50002'],
+        wyrmprint: ['10009', '10205']
+    }
+];
+
+const trial_shadow_advs = [{
+        aid: '1040301',
+        dragon: ['40003', '40005'],
+        wyrmprint: ['10006', '10113', '10120']
+    },
+    {
+        aid: '2040302',
+        dragon: ['40003', '40005'],
+        wyrmprint: ['10006', '10113', '10120']
+    },
+    {
+        aid: '1040202',
+        dragon: ['40003', '40005'],
+        wyrmprint: ['10005', '10113']
+    },
+    {
+        aid: '2040201',
+        dragon: ['40003', '40005'],
+        wyrmprint: ['10001', '10113']
+    },
+    {
+        aid: '1040103',
+        dragon: ['40005'],
+        wyrmprint: ['10117', '10114']
+    },
+    {
+        aid: '1040402',
+        dragon: ['40005'],
+        wyrmprint: ['10007', '10113']
+    },
+    {
+        aid: '2040701',
+        dragon: ['40005'],
+        wyrmprint: ['10108', '10207', '10115', '10203']
+    }
+];

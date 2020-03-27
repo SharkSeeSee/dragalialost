@@ -1,7 +1,7 @@
 //筛选角色
 function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
     // body...
-    var result = [];
+    var filterResult = [];
 
     if (raritys.length == 0) {
         raritys = ["5", "4", "3"];
@@ -21,24 +21,22 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
 
     resWords = resExpand(resWords);
 
-    console.log(resWords);
-
     for (var key in adlist) {
 
-        if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 
-            && elements.indexOf(adlist[key].element) > -1 && resWords.indexOf(adlist[key].ability2[0]) > -1) {
+        if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 &&
+            elements.indexOf(adlist[key].element) > -1 && resWords.indexOf(adlist[key].ability2[0]) > -1) {
 
-            result.push(adlist[key]);
+            filterResult.push(adlist[key]);
 
         }
     }
 
     if (effects.length != 0) {
-        for (var key in result) {
+        for (var key in filterResult) {
             for (var i = 0; i < effects.length; i++) {
-                var teffect = result[key].skilleffects;
+                var teffect = filterResult[key].skilleffects;
                 if (teffect.indexOf(effects[i]) == -1) {
-                    delete result[key];
+                    delete filterResult[key];
                     break;
                 }
             }
@@ -46,22 +44,41 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
     }
 
     if (isRestriction == true) {
-        for (var key in result) {
-            if (result[key].restriction == false) {
-                delete result[key];
+        for (var key in filterResult) {
+            if (filterResult[key].restriction == false) {
+                delete filterResult[key];
             }
         }
     }
 
     if (isBreak == true) {
-        for (var key in result) {
-            if (result[key].maxlevel != 100) {
-                delete result[key];
+        for (var key in filterResult) {
+            if (filterResult[key].maxlevel != 100) {
+                delete filterResult[key];
             }
         }
     }
 
-    return result;
+    return filterResult;
+}
+
+function searchInputText(filterArray, searchText) {
+    if (searchText.length == 0) {
+
+        return result;
+    }
+
+    var filterResult = [];
+
+    for (var key in filterArray) {
+        var pinyin = makePy(filterArray[key].name)[0].toLowerCase();
+        //console.log(filterArray[key].name + ':' + pinyin);
+        if ((filterArray[key].name).indexOf(searchText) > -1 || pinyin.indexOf(searchText.toLowerCase()) > -1) {
+            filterResult.push(filterArray[key]);
+        }
+    }
+
+    return filterResult;
 }
 
 function resExpand(resWords) {
@@ -117,23 +134,6 @@ function resExpand(resWords) {
         }
     }
     return result;
-}
-//抗性转换
-function resfilter(adslist, resWords) {
-    // body...
-    const filterwords = {
-        'ablilities_101': ['ablilities_101', 'ablilities_102'],
-    }
-
-    var result = [];
-
-
-
-    for (var i = Things.length - 1; i >= 0; i--) {
-        Things[i]
-    }
-
-    filterwords.filter
 }
 
 // 添加角色列表
@@ -491,13 +491,11 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
     var resWords = [];
     var isRes = false;
     var isBreak = false;
-    var result;
+    var result = [];
 
     add_item(adventurers, dragons, wyrmprints);
 
     $("input[name='Rarity']").each(function(index, el) {
-
-        console.log($(this));
         $(this).on('change', function(event) {
             /* Act on the event */
             if ($(this).is(':checked')) {
@@ -506,7 +504,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), rarityWords);
                 rarityWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -521,7 +519,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), elementWords);
                 elementWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -536,7 +534,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), weaponWords);
                 weaponWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -550,7 +548,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
                 var t = $.inArray($(this).attr('value'), effectWords);
                 effectWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, resWords, effectWords, isRes, isBreak);
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
             $('#role-list').empty();
             add_item(result, dragons, wyrmprints);
         });
@@ -573,7 +571,7 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
     $("#checkbox_other_5").click(function(event) {
         /* Act on the event */
         isRes = $(this).is(':checked');
-        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
         $('#role-list').empty();
         add_item(result, dragons, wyrmprints);
     });
@@ -581,10 +579,35 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
     $("#checkbox_other_6").click(function(event) {
         /* Act on the event */
         isBreak = $(this).is(':checked');
-        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, isRes, isBreak);
+        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords,resWords, isRes, isBreak);
         $('#role-list').empty();
         add_item(result, dragons, wyrmprints);
     });
 
+    $("#searchInput").on('input', function(event) {
+        event.preventDefault();
+
+        /* Act on the event */
+        if ($(this).val().length == 0) {
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords,isRes, isBreak);
+            $('#role-list').empty();
+            add_item(result, dragons, wyrmprints);
+        }
+        else{
+            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords,isRes, isBreak);
+            result = searchInputText(result,$(this).val());
+            $('#role-list').empty();
+            add_item(result, dragons, wyrmprints);
+        }
+
+    });
+
+    $("#clearButton").click(function(event) {
+        /* Act on the event */
+        $("#searchInput").val("");
+        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords,isRes, isBreak);
+        $('#role-list').empty();
+        add_item(result, dragons, wyrmprints);
+    });
 
 }
