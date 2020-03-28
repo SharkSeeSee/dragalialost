@@ -155,7 +155,7 @@ function addItems(adventurer, rDragons, rWyrmprints, tablename) {
 
     document.getElementById(tablename).appendChild(tr);
 
-    $('img').lazyload({ effect: "show", threshold: 100, container: $(tablename) });
+    // $('img').lazyload({ effect: "show", threshold: 100, container: $(tablename) });
 }
 
 function initWindAgitoTeam() {

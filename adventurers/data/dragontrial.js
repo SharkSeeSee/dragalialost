@@ -254,7 +254,7 @@ function addItems(adventurer, dragons, wyrmprints, tablename) {
 
     document.getElementById(tablename).appendChild(tr);
 
-    $('img').lazyload({ effect: "show", threshold: 100, container: $(tablename) });
+    // $('img').lazyload({ effect: "show", threshold: 100, container: $(tablename) });
 }
 
 
