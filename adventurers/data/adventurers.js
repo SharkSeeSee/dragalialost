@@ -1,3 +1,10 @@
+import wyrmprints from './wyrmprints.js'
+import dragons from './dragons.js'
+import adventurers_5 from './adventurers_5.js'
+import adventurers_4 from './adventurers_4.js'
+import adventurers_3 from './adventurers_3.js'
+
+var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
 //筛选角色
 function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
     // body...
@@ -136,8 +143,12 @@ function resExpand(resWords) {
     return result;
 }
 
+var defaultImage = new Image();
+defaultImage.src = defaultPic;
+
 // 添加角色列表
 function add_item(list, dragons, wyrmprints) {
+    
     var div1 = document.getElementById('role-list');
 
     for (var key in list) {
@@ -150,21 +161,22 @@ function add_item(list, dragons, wyrmprints) {
         div1.appendChild(div2);
 
         //图
-
         var div_left = document.createElement("div");
+        div_left.setAttribute('class', 'advs-item');
 
         var button1 = document.createElement('picture');
-
-        button1.setAttribute('class', 'image-button');
+        button1.setAttribute('class', 'lazy');
 
         var source1 = document.createElement('source');
 
-        source1.setAttribute('srcset', './images/adventures/' + list[key].image + '.webp');
+        source1.setAttribute('srcset', defaultImage.src);
+        source1.setAttribute('data-src', './images/adventures/' + list[key].image + '.webp');
         source1.setAttribute('type', 'image/webp');
 
         var img1 = document.createElement('img');
 
-        img1.setAttribute('data-original', './images/adventures/' + list[key].image + '.png');
+        img1.setAttribute('src', defaultImage.src);
+        img1.setAttribute('data-src', './images/adventures/' + list[key].image + '.png');
         img1.setAttribute('alt', list[key].name);
         img1.setAttribute('title', list[key].name);
         img1.setAttribute('loading', 'auto');
@@ -196,26 +208,31 @@ function add_item(list, dragons, wyrmprints) {
         if (list[key].ability1 && list[key].ability2) {
             var div_ex = document.createElement("div");
             div_ex.setAttribute('class', 'ex-list');
-            div_ex.setAttribute('style', 'width:100px;height:25px;display:flex;');
+            div_ex.setAttribute('style', 'width:100px;height:25px;display:flex;margin-left:1px;');
 
             var div_ex_1 = document.createElement("div");
             div_ex_1.setAttribute('class', 'ex-item');
             div_ex_1.setAttribute('style', 'width:25px;height:25px;');
 
             var ex_pic_1 = document.createElement('picture');
-            ex_pic_1.setAttribute('style', 'width:25px;height:25px;');
+            ex_pic_1.setAttribute('style', 'width:100%;height:100%;');
+            ex_pic_1.setAttribute('class', 'lazy');
 
             var ex_source_1 = document.createElement('source');
 
-            ex_source_1.setAttribute('srcset', './images/other/' + list[key].ability1[0] + '.webp');
+            ex_source_1.setAttribute('srcset', defaultImage.src);
+            ex_source_1.setAttribute('data-src', './images/other/' + list[key].ability1[0] + '.webp');
             ex_source_1.setAttribute('type', 'image/webp');
+            ex_source_1.setAttribute('style', 'width:100%;height:100%;');
 
             var ex_img_1 = document.createElement('img');
 
-            ex_img_1.setAttribute('data-original', './images/other/' + list[key].ability1[0] + '.png');
+            ex_img_1.setAttribute('src', defaultImage.src);
+            ex_img_1.setAttribute('data-src', './images/other/' + list[key].ability1[0] + '.png');
             ex_img_1.setAttribute('alt', list[key].ability1[1]);
             ex_img_1.setAttribute('title', list[key].ability1[1]);
             ex_img_1.setAttribute('loading', 'auto');
+            ex_img_1.setAttribute('style', 'width:100%;height:100%;');
 
             ex_pic_1.appendChild(ex_source_1);
             ex_pic_1.appendChild(ex_img_1);
@@ -226,19 +243,24 @@ function add_item(list, dragons, wyrmprints) {
             div_ex_2.setAttribute('style', 'width:25px;height:25px;margin-left:5px;');
 
             var ex_pic_2 = document.createElement('picture');
-            ex_pic_2.setAttribute('style', 'width:25px;height:25px;');
+            ex_pic_2.setAttribute('style', 'width:100%;height:100%;');
+            ex_pic_2.setAttribute('class', 'lazy');
 
             var ex_source_2 = document.createElement('source');
 
-            ex_source_2.setAttribute('srcset', './images/other/' + list[key].ability2[0] + '.webp');
+            ex_source_2.setAttribute('srcset', defaultImage.src);
+            ex_source_2.setAttribute('data-src', './images/other/' + list[key].ability2[0] + '.webp');
             ex_source_2.setAttribute('type', 'image/webp');
+            ex_source_2.setAttribute('style', 'width:100%;height:100%;');
 
             var ex_img_2 = document.createElement('img');
 
-            ex_img_2.setAttribute('data-original', './images/other/' + list[key].ability2[0] + '.png');
+            ex_img_2.setAttribute('src', defaultImage.src);
+            ex_img_2.setAttribute('data-src', './images/other/' + list[key].ability2[0] + '.png');
             ex_img_2.setAttribute('alt', list[key].ability2[1]);
             ex_img_2.setAttribute('title', list[key].ability2[1]);
             ex_img_2.setAttribute('loading', 'auto');
+            ex_img_2.setAttribute('style', 'width:100%;height:100%;');
 
             ex_pic_2.appendChild(ex_source_2);
             ex_pic_2.appendChild(ex_img_2);
@@ -279,9 +301,10 @@ function add_item(list, dragons, wyrmprints) {
         div2.appendChild(div_right);
     }
 
-    $('img').lazyload({ effect: "show", threshold: 100, container: $("#role-list") });
+    // $('img').lazyload({ effect: "show", threshold: 100, container: $("#role-list") });
 
     bindEvent(list, dragons, wyrmprints);
+    picture_lazyload();
 
 }
 
@@ -302,7 +325,6 @@ function bindEvent(list, dragons, wyrmprints) {
 
 //弹出框
 function showAlertView(keyDic, dragons, wyrmprints) {
-    console.log(wyrmprints);
     // body...
     var tdiv = document.createElement('div');
 
@@ -374,7 +396,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var img_2 = document.createElement('img');
 
-    img_2.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf1].img + '.webp');
+    img_2.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf1].img + '.png');
     img_2.setAttribute('alt', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('title', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('loading', 'auto');
@@ -404,7 +426,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var img_3 = document.createElement('img');
 
-    img_3.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf2].img + '.webp');
+    img_3.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf2].img + '.png');
     img_3.setAttribute('alt', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('title', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('loading', 'auto');
@@ -481,7 +503,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
 }
 
-export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wyrmprints) {
+export function initAds() {
 
     var adventurers = Object.assign(adventurers_3, adventurers_4, adventurers_5);
     var weaponWords = [];
@@ -609,4 +631,26 @@ export function initAds(adventurers_3, adventurers_4, adventurers_5, dragons, wy
         add_item(result, dragons, wyrmprints);
     });
 
+}
+
+$(document).ready(function() {
+    // 开始写 jQuery 代码..
+    initAds();
+    $("#role-list").scroll(function() {
+        picture_lazyload();
+    });
+
+});
+
+function picture_lazyload() {
+    // body...
+    $('.lazy').each(function(index, el) {
+        var a = el.offsetTop;
+        if (a >= $("#role-list").scrollTop() && a < ($("#role-list").scrollTop() + $("#role-list").height())) {
+            $(this).children('source').attr('srcset', $(this).children('source').attr("data-src"));
+            $(this).children('img').attr('src', $(this).children('source').attr("data-src"));
+            $(this).removeClass('lazy');
+        } 
+
+    });
 }

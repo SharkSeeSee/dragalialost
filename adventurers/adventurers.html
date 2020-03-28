@@ -8,23 +8,8 @@
     <title>人物</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" async></script>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
     <script type="text/javascript" src="./data/pinyin.js" async></script>
-    <script type="module">
-        import wyrmprints from './data/wyrmprints.js'
-        import dragons from './data/dragons.js'
-        import adventurers_5 from './data/adventurers_5.js'
-        import adventurers_4 from './data/adventurers_4.js'
-        import adventurers_3 from './data/adventurers_3.js'
-        import { initAds } from './data/adventurers.js'
-
-        $(document).ready(function(){
-            // 开始写 jQuery 代码..
-                    initAds(adventurers_3,adventurers_4,adventurers_5,dragons,wyrmprints);
-                });
-        
-        
-    </script>
+    <script src="./data/adventurers.js" type="module"></script>
 </head>
 
 <body>
