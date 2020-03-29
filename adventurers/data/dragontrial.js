@@ -128,6 +128,10 @@ const trial_flame_advs = [{
 ];
 
 const trial_light_advs = [{
+    aid: '1050102',
+    dragon: ['50002'],
+    wyrmprint: ['10002','10111' ,'10205']
+},{
         aid: '1050301',
         dragon: ['50003', '50008'],
         wyrmprint: ['10117', '10114']

@@ -8,7 +8,7 @@ var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8
 //筛选角色
 function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
     // body...
-    var filterResult = [];
+    var filterResult = new Array();
 
     if (raritys.length == 0) {
         raritys = ["5", "4", "3"];
@@ -33,7 +33,7 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
         if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 &&
             elements.indexOf(adlist[key].element) > -1 && resWords.indexOf(adlist[key].ability2[0]) > -1) {
 
-            filterResult.push(adlist[key]);
+            filterResult[key] = adlist[key];
 
         }
     }
@@ -81,7 +81,7 @@ function searchInputText(filterArray, searchText) {
         var pinyin = makePy(filterArray[key].name)[0].toLowerCase();
         //console.log(filterArray[key].name + ':' + pinyin);
         if ((filterArray[key].name).indexOf(searchText) > -1 || pinyin.indexOf(searchText.toLowerCase()) > -1) {
-            filterResult.push(filterArray[key]);
+            filterResult[key] = filterArray[key];
         }
     }
 
@@ -148,7 +148,7 @@ defaultImage.src = defaultPic;
 
 // 添加角色列表
 function add_item(list, dragons, wyrmprints) {
-    
+
     var div1 = document.getElementById('role-list');
 
     for (var key in list) {
@@ -166,6 +166,7 @@ function add_item(list, dragons, wyrmprints) {
 
         var button1 = document.createElement('picture');
         button1.setAttribute('class', 'lazy');
+        button1.setAttribute('id', 'icon-' + key);
 
         var source1 = document.createElement('source');
 
@@ -198,7 +199,7 @@ function add_item(list, dragons, wyrmprints) {
         div3.innerText = list[key].name;
 
         div4.setAttribute('class', 'res-name');
-        div4.setAttribute('style', 'text-align: left;margin:5px 5px 5px 5px;height:20px;');
+        div4.setAttribute('style', 'text-align: left;margin:5px 5px 5px 5px;height:20px;font-size:14px;');
         div4.innerText = list[key].res;
 
         div_mid.appendChild(div3);
@@ -217,6 +218,7 @@ function add_item(list, dragons, wyrmprints) {
             var ex_pic_1 = document.createElement('picture');
             ex_pic_1.setAttribute('style', 'width:100%;height:100%;');
             ex_pic_1.setAttribute('class', 'lazy');
+            ex_pic_1.setAttribute('id', 'ability-' + list[key].ability1[0]);
 
             var ex_source_1 = document.createElement('source');
 
@@ -245,6 +247,7 @@ function add_item(list, dragons, wyrmprints) {
             var ex_pic_2 = document.createElement('picture');
             ex_pic_2.setAttribute('style', 'width:100%;height:100%;');
             ex_pic_2.setAttribute('class', 'lazy');
+            ex_pic_1.setAttribute('id', 'ability-' + list[key].ability2[0]);
 
             var ex_source_2 = document.createElement('source');
 
@@ -642,15 +645,50 @@ $(document).ready(function() {
 
 });
 
+var imageCacheArray = new Array();
+
 function picture_lazyload() {
     // body...
     $('.lazy').each(function(index, el) {
         var a = el.offsetTop;
         if (a >= $("#role-list").scrollTop() && a < ($("#role-list").scrollTop() + $("#role-list").height())) {
-            $(this).children('source').attr('srcset', $(this).children('source').attr("data-src"));
-            $(this).children('img').attr('src', $(this).children('source').attr("data-src"));
+
+            var keyID = $(this).attr('id');
+            var isSupportWebp = !![].map && document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
+
+            if (isSupportWebp) {
+                if (imageCacheArray[keyID]) {
+                    $(this).children('source').attr('srcset', imageCacheArray[keyID].src);
+                } else {
+                    var tempImage = new Image();
+                    tempImage.src = $(this).children('source').attr("data-src");
+                    tempImage.onload = function() {
+                        imageCacheArray[keyID] = tempImage;
+                    }
+
+                    $(this).children('source').attr('srcset', tempImage.src);
+                }
+            } else {
+                if (imageCacheArray[keyID]) {
+                    $(this).children('img').attr('srcset', imageCacheArray[keyID].src);
+                } else {
+                    var tempImage = new Image();
+                    tempImage.src = $(this).children('img').attr("data-src");
+                    tempImage.onload = function() {
+                        imageCacheArray[keyID] = tempImage;
+                    }
+
+                    $(this).children('img').attr('srcset', tempImage.src);
+                }
+            }
+
+
+
+            $(this).children('img').attr('src', $(this).children('img').attr("data-src"));
             $(this).removeClass('lazy');
-        } 
+        }
 
     });
+
+    console.log(imageCacheArray);
 }

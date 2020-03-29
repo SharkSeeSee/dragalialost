@@ -521,6 +521,24 @@ const adventurers_4 = {
         skilleffects: [],
         restriction:false
     },
+    '2030102': {
+        rid: '2030102',
+        name: '霍普',
+        res: '(教会骑士.Ver)',
+        nickname: '',
+        rarity: 4,
+        weapon: 'Sword',
+        element: 'Wind',
+        image: 'rarity4/2030102',
+        dragon: '30009',
+        hf1: '10001',
+        hf2: '10122',
+        ability1:['ablilities_01','龙化增强+15%'],
+        ability2:['ablilities_111','湿身、冰冻抗性+100%'],
+        maxlevel: 80,
+        skilleffects: [],
+        restriction:false
+    },
     '2030201': {
         rid: '2030201',
         name: '阿迪斯',

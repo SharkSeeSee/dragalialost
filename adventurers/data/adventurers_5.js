@@ -1025,6 +1025,24 @@ const adventurers_5 = {
         skilleffects: [],
         restriction: false
     },
+    '1050102': {
+        rid: '1050102',
+        name: '沙音',
+        res: '',
+        nickname: '暗剑',
+        rarity: 5,
+        weapon: 'Sword',
+        element: 'Shadow',
+        image: 'rarity5/1050102',
+        dragon: '50002',
+        hf1:'10002',
+        hf2:'10111',
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_121', '麻痹、黑暗抗性+100%'],
+        maxlevel: 80,
+        skilleffects: ['Poison'],
+        restriction: false
+    },
     '1050201': {
         rid: '1050201',
         name: '家康',
