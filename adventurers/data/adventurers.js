@@ -31,7 +31,7 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
     for (var key in adlist) {
 
         if (raritys.indexOf(adlist[key].rarity.toString()) > -1 && weapons.indexOf(adlist[key].weapon) > -1 &&
-            elements.indexOf(adlist[key].element) > -1 && resWords.indexOf(adlist[key].ability2[0]) > -1) {
+            elements.indexOf(adlist[key].element) > -1 && (resWords.indexOf(adlist[key].ability2[0]) > -1 || resWords.indexOf(adlist[key].ability3[0]) > -1)) {
 
             filterResult[key] = adlist[key];
 
@@ -67,7 +67,7 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
     }
 
     return filterResult;
-}
+};
 
 function searchInputText(filterArray, searchText) {
     if (searchText.length == 0) {
@@ -86,7 +86,7 @@ function searchInputText(filterArray, searchText) {
     }
 
     return filterResult;
-}
+};
 
 function resExpand(resWords) {
 
@@ -104,11 +104,14 @@ function resExpand(resWords) {
                 result.push('ablilities_102');
                 result.push('ablilities_104');
                 result.push('ablilities_107');
+                result.push('ablilities_108');
                 break;
             case 'ablilities_105':
                 result.push('ablilities_105');
                 result.push('ablilities_106');
                 result.push('ablilities_108');
+                result.push('ablilities_122');
+                result.push('ablilities_123');
                 break;
             case 'ablilities_109':
                 result.push('ablilities_109');
@@ -141,7 +144,7 @@ function resExpand(resWords) {
         }
     }
     return result;
-}
+};
 
 var defaultImage = new Image();
 defaultImage.src = defaultPic;
@@ -205,9 +208,10 @@ function add_item(list, dragons, wyrmprints) {
         div_mid.appendChild(div3);
         div_mid.appendChild(div4);
 
+        var div_ex = document.createElement("div");
         //抗性 EX
-        if (list[key].ability1 && list[key].ability2) {
-            var div_ex = document.createElement("div");
+        if (list[key].ability1) {
+
             div_ex.setAttribute('class', 'ex-list');
             div_ex.setAttribute('style', 'width:100px;height:25px;display:flex;margin-left:1px;');
 
@@ -218,7 +222,7 @@ function add_item(list, dragons, wyrmprints) {
             var ex_pic_1 = document.createElement('picture');
             ex_pic_1.setAttribute('style', 'width:100%;height:100%;');
             ex_pic_1.setAttribute('class', 'lazy');
-            ex_pic_1.setAttribute('id', 'ability-' + list[key].ability1[0]);
+            ex_pic_1.setAttribute('id', list[key].ability1[0]);
 
             var ex_source_1 = document.createElement('source');
 
@@ -240,6 +244,10 @@ function add_item(list, dragons, wyrmprints) {
             ex_pic_1.appendChild(ex_img_1);
             div_ex_1.appendChild(ex_pic_1);
 
+            div_ex.appendChild(div_ex_1);
+        }
+
+        if (list[key].ability2) {
             var div_ex_2 = document.createElement("div");
             div_ex_2.setAttribute('class', 'ex-item');
             div_ex_2.setAttribute('style', 'width:25px;height:25px;margin-left:5px;');
@@ -247,7 +255,7 @@ function add_item(list, dragons, wyrmprints) {
             var ex_pic_2 = document.createElement('picture');
             ex_pic_2.setAttribute('style', 'width:100%;height:100%;');
             ex_pic_2.setAttribute('class', 'lazy');
-            ex_pic_1.setAttribute('id', 'ability-' + list[key].ability2[0]);
+            ex_pic_2.setAttribute('id', list[key].ability2[0]);
 
             var ex_source_2 = document.createElement('source');
 
@@ -269,10 +277,43 @@ function add_item(list, dragons, wyrmprints) {
             ex_pic_2.appendChild(ex_img_2);
             div_ex_2.appendChild(ex_pic_2);
 
-            div_ex.appendChild(div_ex_1);
             div_ex.appendChild(div_ex_2);
-            div_mid.appendChild(div_ex);
         }
+
+        if (list[key].ability3 && list[key].ability3[0].length > 0) {
+            var div_ex_3 = document.createElement("div");
+            div_ex_3.setAttribute('class', 'ex-item');
+            div_ex_3.setAttribute('style', 'width:25px;height:25px;margin-left:5px;');
+
+            var ex_pic_3 = document.createElement('picture');
+            ex_pic_3.setAttribute('style', 'width:100%;height:100%;');
+            ex_pic_3.setAttribute('class', 'lazy');
+            ex_pic_3.setAttribute('id', list[key].ability3[0]);
+
+            var ex_source_3 = document.createElement('source');
+
+            ex_source_3.setAttribute('srcset', defaultImage.src);
+            ex_source_3.setAttribute('data-src', './images/other/' + list[key].ability3[0] + '.webp');
+            ex_source_3.setAttribute('type', 'image/webp');
+            ex_source_3.setAttribute('style', 'width:100%;height:100%;');
+
+            var ex_img_3 = document.createElement('img');
+
+            ex_img_3.setAttribute('src', defaultImage.src);
+            ex_img_3.setAttribute('data-src', './images/other/' + list[key].ability3[0] + '.png');
+            ex_img_3.setAttribute('alt', list[key].ability3[1]);
+            ex_img_3.setAttribute('title', list[key].ability3[1]);
+            ex_img_3.setAttribute('loading', 'auto');
+            ex_img_3.setAttribute('style', 'width:100%;height:100%;');
+
+            ex_pic_3.appendChild(ex_source_3);
+            ex_pic_3.appendChild(ex_img_3);
+            div_ex_3.appendChild(ex_pic_3);
+
+            div_ex.appendChild(div_ex_3);
+        }
+
+        div_mid.appendChild(div_ex);
 
         var div_right = document.createElement("div");
         div_right.setAttribute('style', 'margin-top:5px;');
@@ -307,9 +348,9 @@ function add_item(list, dragons, wyrmprints) {
     // $('img').lazyload({ effect: "show", threshold: 100, container: $("#role-list") });
 
     bindEvent(list, dragons, wyrmprints);
-    picture_lazyload();
+    check_webp_feature(picture_lazyload);
 
-}
+};
 
 //绑定按键
 function bindEvent(list, dragons, wyrmprints) {
@@ -324,7 +365,7 @@ function bindEvent(list, dragons, wyrmprints) {
             });
         }
     });
-}
+};
 
 //弹出框
 function showAlertView(keyDic, dragons, wyrmprints) {
@@ -504,7 +545,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     return tdiv;
 
-}
+};
 
 export function initAds() {
 
@@ -634,61 +675,70 @@ export function initAds() {
         add_item(result, dragons, wyrmprints);
     });
 
-}
+};
 
 $(document).ready(function() {
     // 开始写 jQuery 代码..
     initAds();
     $("#role-list").scroll(function() {
-        picture_lazyload();
+        check_webp_feature(picture_lazyload);
     });
 
 });
 
 var imageCacheArray = new Array();
 
-function picture_lazyload() {
+function check_webp_feature(callback) {
+    // body...
+
+    var img = new Image();
+    img.onload = function() {
+        var result = (img.width > 0) && (img.height > 0);
+        callback(result);
+    };
+    img.onerror = function() {
+        callback(false);
+    };
+    img.src = "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
+};
+
+function picture_lazyload(isSupportWebp) {
     // body...
     $('.lazy').each(function(index, el) {
+
         var a = el.offsetTop;
         if (a >= $("#role-list").scrollTop() && a < ($("#role-list").scrollTop() + $("#role-list").height())) {
 
             var keyID = $(this).attr('id');
-            var isSupportWebp = !![].map && document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
+            var children_source = $(this).children('source');
+            var children_img = $(this).children('img');
 
             if (isSupportWebp) {
                 if (imageCacheArray[keyID]) {
-                    $(this).children('source').attr('srcset', imageCacheArray[keyID].src);
+                    children_source.attr('srcset', imageCacheArray[keyID].src);
                 } else {
                     var tempImage = new Image();
                     tempImage.src = $(this).children('source').attr("data-src");
                     tempImage.onload = function() {
                         imageCacheArray[keyID] = tempImage;
+                        children_source.attr('srcset', tempImage.src);
                     }
-
-                    $(this).children('source').attr('srcset', tempImage.src);
                 }
             } else {
                 if (imageCacheArray[keyID]) {
-                    $(this).children('img').attr('srcset', imageCacheArray[keyID].src);
+                    children_img.attr('src', imageCacheArray[keyID].src);
                 } else {
                     var tempImage = new Image();
                     tempImage.src = $(this).children('img').attr("data-src");
                     tempImage.onload = function() {
                         imageCacheArray[keyID] = tempImage;
+                        children_img.attr('srcset', tempImage.src);
                     }
-
-                    $(this).children('img').attr('srcset', tempImage.src);
                 }
             }
-
-
-
-            $(this).children('img').attr('src', $(this).children('img').attr("data-src"));
             $(this).removeClass('lazy');
         }
 
     });
 
-    console.log(imageCacheArray);
-}
+};

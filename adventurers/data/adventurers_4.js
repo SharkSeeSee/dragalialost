@@ -11,11 +11,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10002',
         hf2: '10104',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_100','昏迷抗性·改+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_100', '昏迷抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
         skilleffects: ['Burn'],
-        restriction:false
+        restriction: false
     },
     '2010102': {
         rid: '2010102',
@@ -29,11 +30,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10103',
         hf2: '10101',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_103','睡眠抗性·改+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_103', '睡眠抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010103': {
         rid: '2010103',
@@ -47,11 +49,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10008',
         hf2: '10101',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010201': {
         rid: '2010201',
@@ -65,11 +68,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10001',
         hf2: '10201',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010301': {
         rid: '1040301',
@@ -83,11 +87,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10006',
         hf2: '10103',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010302': {
         rid: '2010302',
@@ -101,11 +106,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10006',
         hf2: '10103',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_101','睡眠抗性+50%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_101', '睡眠抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010401': {
         rid: '2010401',
@@ -119,11 +125,12 @@ const adventurers_4 = {
         dragon: '10009',
         hf1: '10007',
         hf2: '10204',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Stun'],
-        restriction:false
+        restriction: false
     },
     '2010402': {
         rid: '2010402',
@@ -137,11 +144,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10007',
         hf2: '10008',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010501': {
         rid: '2010501',
@@ -155,11 +163,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10115',
         hf2: '10203',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010502': {
         rid: '2010502',
@@ -173,11 +182,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10001',
         hf2: '10105',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2010601': {
         rid: '2010601',
@@ -191,11 +201,12 @@ const adventurers_4 = {
         dragon: '10003',
         hf1: '10104',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Burn'],
-        restriction:false
+        restriction: false
     },
     '2010701': {
         rid: '2010701',
@@ -203,17 +214,18 @@ const adventurers_4 = {
         res: '',
         nickname: '炼金法',
         rarity: 4,
-        weapon: 'Sword',
-        element: 'Wand',
+        weapon: 'Wand',
+        element: 'Fire',
         image: 'rarity4/2010701',
         dragon: '10003',
         hf1: '10009',
         hf2: '10101',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010801': {
         rid: '2010801',
@@ -227,11 +239,12 @@ const adventurers_4 = {
         dragon: '10005',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2010802': {
         rid: '2010802',
@@ -245,11 +258,12 @@ const adventurers_4 = {
         dragon: '10005',
         hf1: '10203',
         hf2: '10107',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2020101': {
         rid: '2020101',
@@ -263,11 +277,12 @@ const adventurers_4 = {
         dragon: '20007',
         hf1: '10008',
         hf2: '10206',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2020201': {
         rid: '2020201',
@@ -281,11 +296,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10001',
         hf2: '10206',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Bog'],
-        restriction:false
+        restriction: false
     },
     '2020202': {
         rid: '2020202',
@@ -299,11 +315,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10001',
         hf2: '10105',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_105','烧伤抗性+50%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_105', '烧伤抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Freeze'],
-        restriction:false
+        restriction: false
     },
     '2020301': {
         rid: '2020301',
@@ -317,11 +334,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10006',
         hf2: '10110',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2020302': {
         rid: '2020302',
@@ -335,11 +353,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10006',
         hf2: '10110',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Bog'],
-        restriction:false
+        restriction: false
     },
     '2020303': {
         rid: '2020303',
@@ -353,11 +372,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10006',
         hf2: '10110',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_105','烧伤抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_105', '烧伤抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Freeze'],
-        restriction:false
+        restriction: false
     },
     '2020401': {
         rid: '2020401',
@@ -371,11 +391,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10007',
         hf2: '10116',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2020501': {
         rid: '2020501',
@@ -389,11 +410,12 @@ const adventurers_4 = {
         dragon: '20002',
         hf1: '10202',
         hf2: '10203',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_108','烧伤抗性+50%、昏迷抗性+25%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_105', '烧伤抗性+50%'],
+        ability3: ['ablilities_102', '昏迷抗性+25%'],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2020601': {
         rid: '2020601',
@@ -407,11 +429,12 @@ const adventurers_4 = {
         dragon: '20007',
         hf1: '10003',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_105','烧伤抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_105', '烧伤抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2020701': {
         rid: '2020701',
@@ -425,11 +448,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10009',
         hf2: '10101',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Freeze'],
-        restriction:true
+        restriction: true
     },
     '2020702': {
         rid: '2020702',
@@ -443,11 +467,12 @@ const adventurers_4 = {
         dragon: '20003',
         hf1: '10009',
         hf2: '10101',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_102','昏迷抗性+50%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_102', '昏迷抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2020703': {
         rid: '2020703',
@@ -461,11 +486,12 @@ const adventurers_4 = {
         dragon: '20007',
         hf1: '10101',
         hf2: '10110',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_105','烧伤抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_105', '烧伤抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2020801': {
         rid: '2020801',
@@ -479,11 +505,12 @@ const adventurers_4 = {
         dragon: '20005',
         hf1: '10108',
         hf2: '10117',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_105','烧伤抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_105', '烧伤抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2020802': {
         rid: '2020802',
@@ -497,11 +524,12 @@ const adventurers_4 = {
         dragon: '20005',
         hf1: '10203',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_102','昏迷抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_102', '昏迷抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030101': {
         rid: '2030101',
@@ -515,16 +543,17 @@ const adventurers_4 = {
         dragon: '30005',
         hf1: '10001',
         hf2: '10103',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030102': {
         rid: '2030102',
         name: '霍普',
-        res: '(教会骑士.Ver)',
+        res: '(教会骑士Ver)',
         nickname: '',
         rarity: 4,
         weapon: 'Sword',
@@ -533,11 +562,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10001',
         hf2: '10122',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_111','湿身、冰冻抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['ablilities_110', '冰冻抗性+100%'],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030201': {
         rid: '2030201',
@@ -551,11 +581,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10001',
         hf2: '10201',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_110','冰冻抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_110', '冰冻抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Poison'],
-        restriction:true
+        restriction: true
     },
     '2030202': {
         rid: '2030202',
@@ -569,11 +600,12 @@ const adventurers_4 = {
         dragon: '30003',
         hf1: '10001',
         hf2: '10111',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Poison'],
-        restriction:false
+        restriction: false
     },
     '2030301': {
         rid: '2030301',
@@ -587,11 +619,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10006',
         hf2: '10205',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_112','湿身抗性·改+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_112', '湿身抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
-        skilleffects: ['Poison','Stun'],
-        restriction:true
+        skilleffects: ['Poison', 'Stun'],
+        restriction: true
     },
     '2030401': {
         rid: '2030401',
@@ -605,11 +638,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10007',
         hf2: '10105',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030501': {
         rid: '2030501',
@@ -623,11 +657,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10001',
         hf2: '10201',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030502': {
         rid: '2030502',
@@ -641,11 +676,12 @@ const adventurers_4 = {
         dragon: '30009',
         hf1: '10001',
         hf2: '10201',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_110','冰冻抗性+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_110', '冰冻抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030601': {
         rid: '2030601',
@@ -659,11 +695,12 @@ const adventurers_4 = {
         dragon: '30003',
         hf1: '10106',
         hf2: '10111',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Poison'],
-        restriction:false
+        restriction: false
     },
     '2030602': {
         rid: '2030602',
@@ -677,11 +714,12 @@ const adventurers_4 = {
         dragon: '30003',
         hf1: '10106',
         hf2: '10111',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Poison'],
-        restriction:false
+        restriction: false
     },
     '2030701': {
         rid: '2030701',
@@ -695,11 +733,12 @@ const adventurers_4 = {
         dragon: '30013',
         hf1: '10112',
         hf2: '10009',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030702': {
         rid: '2030702',
@@ -713,11 +752,12 @@ const adventurers_4 = {
         dragon: '30013',
         hf1: '10101',
         hf2: '10112',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2030801': {
         rid: '2030801',
@@ -731,11 +771,12 @@ const adventurers_4 = {
         dragon: '30002',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_109','湿身抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_109', '湿身抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2030802': {
         rid: '2030802',
@@ -749,11 +790,12 @@ const adventurers_4 = {
         dragon: '30002',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_110','冰冻抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_110', '冰冻抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040101': {
         rid: '2040101',
@@ -767,11 +809,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10001',
         hf2: '10103',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_115','中毒抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_115', '中毒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040201': {
         rid: '2040201',
@@ -785,11 +828,12 @@ const adventurers_4 = {
         dragon: '40007',
         hf1: '10008',
         hf2: '10113',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Paralysis'],
-        restriction:false
+        restriction: false
     },
     '2040202': {
         rid: '2040202',
@@ -803,11 +847,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10001',
         hf2: '10105',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_114','诅咒抗性+50%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_114', '诅咒抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2040301': {
         rid: '2040301',
@@ -821,11 +866,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10006',
         hf2: '10102',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_115','中毒抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_115', '中毒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Stun'],
-        restriction:false
+        restriction: false
     },
     '2040302': {
         rid: '2040302',
@@ -839,11 +885,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10006',
         hf2: '10113',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Paralysis'],
-        restriction:false
+        restriction: false
     },
     '2040401': {
         rid: '2040401',
@@ -857,11 +904,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10007',
         hf2: '10204',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040501': {
         rid: '2040501',
@@ -875,11 +923,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10001',
         hf2: '10201',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040601': {
         rid: '2040601',
@@ -893,11 +942,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10003',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_115','中毒抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_115', '中毒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Stun'],
-        restriction:false
+        restriction: false
     },
     '2040602': {
         rid: '2040602',
@@ -911,11 +961,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10003',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_114','诅咒抗性+50%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2040603': {
         rid: '2040603',
@@ -929,11 +980,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10003',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_117','诅咒抗性+50%、中毒抗性+25%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+50%'],
+        ability3: ['ablilities_115', '中毒抗性+25%'],
         maxlevel: 80,
         skilleffects: ['Paralysis'],
-        restriction:false
+        restriction: false
     },
     '2040701': {
         rid: '2040701',
@@ -947,11 +999,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10207',
         hf2: '10105',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2040702': {
         rid: '2040702',
@@ -965,11 +1018,12 @@ const adventurers_4 = {
         dragon: '40003',
         hf1: '10009',
         hf2: '10101',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040801': {
         rid: '2040801',
@@ -983,11 +1037,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_114','诅咒抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_114', '诅咒抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2040802': {
         rid: '2040802',
@@ -1001,11 +1056,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_101','睡眠抗性+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_101', '睡眠抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2040803': {
         rid: '2040803',
@@ -1019,11 +1075,12 @@ const adventurers_4 = {
         dragon: '40005',
         hf1: '10107',
         hf2: '10108',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_117','中毒抗性+50%、诅咒抗性+20%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_115', '中毒抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2050101': {
         rid: '2050101',
@@ -1037,11 +1094,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10002',
         hf2: '10201',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_119','黑暗抗性+100%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_119', '黑暗抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2050102': {
         rid: '2050102',
@@ -1055,11 +1113,12 @@ const adventurers_4 = {
         dragon: '50002',
         hf1: '10002',
         hf2: '10201',
-        ability1:['ablilities_01','龙化增强+15%'],
-        ability2:['ablilities_118','麻痹抗性+50%'],
+        ability1: ['ablilities_01', '龙化增强+15%'],
+        ability2: ['ablilities_118', '麻痹抗性+50%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2050201': {
         rid: '2050201',
@@ -1073,11 +1132,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10109',
         hf2: '10208',
-        ability1:['ablilities_02','攻击力+10%'],
-        ability2:['ablilities_118','麻痹抗性+100%'],
+        ability1: ['ablilities_02', '攻击力+10%'],
+        ability2: ['ablilities_118', '麻痹抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2050301': {
         rid: '2050301',
@@ -1091,11 +1151,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10006',
         hf2: '10119',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_118','麻痹抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_118', '麻痹抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Blind'],
-        restriction:false
+        restriction: false
     },
     '2050302': {
         rid: '2050302',
@@ -1109,11 +1170,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10006',
         hf2: '10205',
-        ability1:['ablilities_03','暴击率+10%'],
-        ability2:['ablilities_119','黑暗抗性+100%'],
+        ability1: ['ablilities_03', '暴击率+10%'],
+        ability2: ['ablilities_119', '黑暗抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Poison'],
-        restriction:false
+        restriction: false
     },
     '2050401': {
         rid: '2050401',
@@ -1127,11 +1189,12 @@ const adventurers_4 = {
         dragon: '50002',
         hf1: '10007',
         hf2: '10116',
-        ability1:['ablilities_04','防御力+15%'],
-        ability2:['ablilities_118','麻痹抗性+100%'],
+        ability1: ['ablilities_04', '防御力+15%'],
+        ability2: ['ablilities_118', '麻痹抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
-        restriction:true
+        restriction: true
     },
     '2050501': {
         rid: '2050501',
@@ -1145,11 +1208,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10001',
         hf2: '10209',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_120','麻痹抗性·改+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_120', '麻痹抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
     '2050502': {
         rid: '2050502',
@@ -1163,11 +1227,12 @@ const adventurers_4 = {
         dragon: '50002',
         hf1: '10001',
         hf2: '10105',
-        ability1:['ablilities_05','HP+15%'],
-        ability2:['ablilities_120','麻痹抗性·改+100%'],
+        ability1: ['ablilities_05', 'HP+15%'],
+        ability2: ['ablilities_120', '麻痹抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
         skilleffects: ['Sleep'],
-        restriction:true
+        restriction: true
     },
     '2050601': {
         rid: '2050601',
@@ -1181,11 +1246,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10003',
         hf2: '10106',
-        ability1:['ablilities_06','技能增强+15%'],
-        ability2:['ablilities_119','黑暗抗性+100%'],
+        ability1: ['ablilities_06', '技能增强+15%'],
+        ability2: ['ablilities_119', '黑暗抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Blind'],
-        restriction:false
+        restriction: false
     },
     '2050701': {
         rid: '2050701',
@@ -1199,11 +1265,12 @@ const adventurers_4 = {
         dragon: '50003',
         hf1: '10009',
         hf2: '10101',
-        ability1:['ablilities_07','技能伤害+15%'],
-        ability2:['ablilities_119','黑暗抗性+100%'],
+        ability1: ['ablilities_07', '技能伤害+15%'],
+        ability2: ['ablilities_119', '黑暗抗性+100%'],
+        ability3: ['', ''],
         maxlevel: 80,
         skilleffects: ['Sleep'],
-        restriction:false
+        restriction: false
     },
     '2050801': {
         rid: '2050801',
@@ -1217,11 +1284,12 @@ const adventurers_4 = {
         dragon: '50002',
         hf1: '10107',
         hf2: '10118',
-        ability1:['ablilities_08','回复效果+20%'],
-        ability2:['ablilities_120','麻痹抗性·改+100%'],
+        ability1: ['ablilities_08', '回复效果+20%'],
+        ability2: ['ablilities_120', '麻痹抗性·改+100%'],
+        ability3: ['', ''],
         maxlevel: 100,
         skilleffects: [],
-        restriction:false
+        restriction: false
     },
 };
 

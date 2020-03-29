@@ -50,7 +50,7 @@
     color: #ffffff;
 }
 
-.menu-item a {
+.menu li a {
     display: block;
     /* 把链接显示为块元素可使整个链接区域可点击 */
     color: white;
@@ -68,13 +68,5 @@
     padding: 10px 20px;
 }
 
-.active {
-    float: left;
-    margin-right: 5%;
-    /* 两个li之间的距离*/
-    position: relative;
-    overflow: hidden;
-    font-size: 20px;
-    
-}
+
 
