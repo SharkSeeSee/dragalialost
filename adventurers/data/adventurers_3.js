@@ -639,10 +639,10 @@ const adventurers_3 = {
         hf1: '10006',
         hf2: '10119',
         ability1: ['ablilities_03', '暴击率+10%'],
-        ability2: ['ablilities_119', '黑暗抗性+75%'],
+        ability2: ['ablilities_119', '黑暗抗性·改+100%'],
         ability3: ['', ''],
-        maxlevel: 80,
-        skilleffects: ['Sleep'],
+        maxlevel: 100,
+        skilleffects: ['Sleep','Poison'],
         restriction: false
     },
     '3050302': {
@@ -677,7 +677,7 @@ const adventurers_3 = {
         hf1: '10007',
         hf2: '10204',
         ability1: ['ablilities_04', '防御力+15%'],
-        ability2: ['ablilities_119', '黑暗抗性+75%'],
+        ability2: ['ablilities_119', '黑暗抗性·改+100%'],
         ability3: ['', ''],
         maxlevel: 80,
         skilleffects: [],
@@ -715,10 +715,10 @@ const adventurers_3 = {
         hf1: '10009',
         hf2: '10101',
         ability1: ['ablilities_07', '技能伤害+15%'],
-        ability2: ['ablilities_118', '麻痹抗性+75%'],
+        ability2: ['ablilities_120', '麻痹抗性·改+100%'],
         ability3: ['', ''],
-        maxlevel: 80,
-        skilleffects: [],
+        maxlevel: 100,
+        skilleffects: ['Poison'],
         restriction: false
     },
     '3050801': {
