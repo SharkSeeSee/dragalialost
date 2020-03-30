@@ -679,7 +679,7 @@ const adventurers_3 = {
         ability1: ['ablilities_04', '防御力+15%'],
         ability2: ['ablilities_119', '黑暗抗性·改+100%'],
         ability3: ['', ''],
-        maxlevel: 80,
+        maxlevel: 100,
         skilleffects: [],
         restriction: false
     },

@@ -382,7 +382,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     bdiv_1.setAttribute('style', 'background-color:white;width:145px;height:120px;text-align:center;');
 
     var div_1 = document.createElement('div');
-    div_1.setAttribute('style', 'font-size:16px;font-weight:bold;text-align:left;');
+    div_1.setAttribute('style', 'font-size:16px;text-align:left;');
     div_1.innerText = '推荐龙:';
 
     var div_dragon = document.createElement('div');
@@ -421,7 +421,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     bdiv_2.setAttribute('style', 'background-color:white;width:290px;height:120px;text-align:left;');
 
     var div_2 = document.createElement('div');
-    div_2.setAttribute('style', 'font-size:16px;font-weight:bold;');
+    div_2.setAttribute('style', 'font-size:16px;');
     div_2.innerText = '推荐护符(请根据实际变更):';
 
     var div_3 = document.createElement('div');

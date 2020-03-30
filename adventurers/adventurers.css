@@ -12,7 +12,7 @@ div {
     top: 0;
     left: 0px;
     bottom: 0;
-    right: 540px;
+    right: 520px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -70,6 +70,7 @@ div {
 
 .search {
     height: 40px;
+    margin-left: 8px;
 }
 
 .search input {
@@ -91,7 +92,6 @@ div {
     color: white;
     border: 0px;
     border-radius: 5px;
-
     outline: none;
 }
 
@@ -101,49 +101,37 @@ div {
     bottom: 0px;
     right: 0px;
     width: 500px;
-    display: grid;
-    grid-template-columns: 500px;
-    grid-template-rows: 60px 80px 80px 80px 80px;
-    margin-right: 10px;
     padding: 10px;
     border: 1px solid #EAEAEA;
 }
 
-.options_star {
-    height: 60px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    grid-gap: 8px;
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
+.options-0 div {
+    height: 55px;
+    display: flex;
 }
 
-.options_element {
-    height: 60px;
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
+.options_star div {
+    width: 33%;
+    margin-left: 8px;
+    margin-top: 10px;
 }
 
-.options_weapon {
-    height: 60px;
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
+.options_element div {
+    width: 20%;
+    margin-left: 8px;
+    margin-top: 10px;
 }
 
-.options_res {
-    height: 60px;
-    display: grid;
-    grid-gap: 8px;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
-    padding-top: 20px;
-    border-bottom: 1px solid #EAEAEA;
+.options_weapon div {
+    width: 12.5%;
+    margin-left: 8px;
+    margin-top: 10px;
+}
 
+.options_res div {
+    width: 12%;
+    margin-left: 8px;
+    margin-top: 10px;
 }
 
 label img,
@@ -152,58 +140,48 @@ picture {
     height: 25px;
 }
 
-.checkbox {
-    /*border: 5px solid red;*/
-}
-
 .checkbox input[type="checkbox"] {
     display: none;
 }
 
 .checkbox label {
+    flex: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    align-items: center;
+    height: 35px;
     box-shadow: darkgrey 0px 1px 2px 1px; //边框阴影
 }
 
 .checkbox input[type="checkbox"]+label {
-    width: auto;
-    height: auto;
     background-color: #FFFFCC;
-    align-items: center;
-
 }
 
 .checkbox input[type="checkbox"]:checked+label {
-    width: auto;
-    height: auto;
     background-color: #99CCFF;
-    align-items: center;
 }
 
-.options-other {
-    display: flex;
-    flex-direction: row;
+.options-1 {
+    margin-left: 8px;
 }
 
-.effect {
-    display: flex;
-    flex-direction: column;
+.options-1 div {
     width: 50%;
-}
-
-.effect input {
-    display: block;
     float: left;
-    zoom: 150%;
-    font-size: 16px;
-    color: white;
-    background-color: white;
 }
 
-.effect label {
+.options-1 div div input {
+    zoom: 150%;
+}
+
+.options-1 div div label {
     user-select: none;
+}
+
+.effect div{
+    width: 100%;
+}
+
+.other div{
+    width: 100%;
 }
