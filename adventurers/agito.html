@@ -9,33 +9,13 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js" async></script>
     <script src='./data/agito.js' type="module"></script>
-    <script type="text/javascript">
-    window.onload = function() {
-        // body...
-        if (document.readyState == "complete") {
-            $('.loading').fadeOut('slow/400/fast', function() {
-                $('.loading').remove();
-            });
-
-        }
-    }
-    </script>
 </head>
 
 <body>
-	<div class="loading">
-        <div class="pic">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-        </div>
-    </div>
     <div class="dungeons">
         <div>
             <picture class="agito_img">
-                <source src="./images/dungeons/agito_0.webp" type="image/webp">
+                <source srcset="./images/dungeons/agito_0.webp" type="image/webp">
                 <img src="./images/dungeons/agito_0.png">
             </picture>
         </div>
@@ -53,7 +33,7 @@
     <div class="dungeons">
         <div>
             <picture class="agito_img">
-                <source src="./images/dungeons/agito_1.webp" type="image/webp">
+                <source srcset="./images/dungeons/agito_1.webp" type="image/webp">
                 <img src="./images/dungeons/agito_1.png">
             </picture>
         </div>

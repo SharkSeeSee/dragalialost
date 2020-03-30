@@ -6,15 +6,33 @@
     <meta charset="utf-8">
     <title>Dragalia Lost</title>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    function goToPage(param) {
+        document.getElementById('ifr1').src = param;
+        $('.loading').fadeIn('slow/400/fast');
+    }
+
+    $(document).ready(function() {
+        if ($('#ifr1')[0].attachEvent) {
+            $('#ifr1')[0].attachEvent("onload", function() {
+                $('.loading').fadeOut('slow/400/fast');
+            });
+        } else {
+            $('#ifr1')[0].onload = function() {
+                $('.loading').fadeOut('slow/400/fast');
+            };
+        }
+    });
+    </script>
+    <noscript>Your browser does not support JavaScript!</noscript>
 </head>
 
 <body>
-    <noscript>Your browser does not support JavaScript!</noscript>
     <div class="top">
         <div class="menutop">
             <a href="https://dragalialost.com/">
                 <picture>
-                    <source src="./images/other/logo_app.webp" type="image/webp">
+                    <source srcset="./images/other/logo_app.webp" type="image/webp">
                     <img src="./images/other/logo_app.png">
                 </picture>
             </a>
@@ -29,14 +47,18 @@
                 <a href="#" onclick="goToPage('agito.html')">阿基德</a>
             </li>
         </ul>
-        <script type="text/javascript">
-        function goToPage(param) {
-            document.getElementById('ifr1').src = param;
-        }
-        </script>
     </div>
     <div class="middle">
         <iframe id="ifr1" src="adventurers.html" scrolling="yes" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: 100%;"> </iframe>
+    </div>
+    <div class="loading">
+        <div class="pic">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
     </div>
 </body>
 
