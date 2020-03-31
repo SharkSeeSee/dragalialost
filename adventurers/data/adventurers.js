@@ -4,6 +4,7 @@ import adventurers_5 from './adventurers_5.js'
 import adventurers_4 from './adventurers_4.js'
 import adventurers_3 from './adventurers_3.js'
 
+var isWebp = false;
 var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
 //筛选角色
 function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
@@ -67,7 +68,7 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
     }
 
     return filterResult;
-};
+}
 
 function searchInputText(filterArray, searchText) {
     if (searchText.length == 0) {
@@ -86,7 +87,7 @@ function searchInputText(filterArray, searchText) {
     }
 
     return filterResult;
-};
+}
 
 function resExpand(resWords) {
 
@@ -144,13 +145,13 @@ function resExpand(resWords) {
         }
     }
     return result;
-};
+}
 
 var defaultImage = new Image();
 defaultImage.src = defaultPic;
 
 // 添加角色列表
-function add_item(list, dragons, wyrmprints) {
+function add_item(list) {
 
     var div1 = document.getElementById('role-list');
 
@@ -235,7 +236,7 @@ function add_item(list, dragons, wyrmprints) {
 
             ex_img_1.setAttribute('src', defaultImage.src);
             ex_img_1.setAttribute('data-src', './images/other/' + list[key].ability1[0] + '.png');
-            ex_img_1.setAttribute('alt', list[key].ability1[1]);
+            ex_img_1.setAttribute('alt', '能力1');
             ex_img_1.setAttribute('title', list[key].ability1[1]);
             ex_img_1.setAttribute('loading', 'auto');
             ex_img_1.setAttribute('style', 'width:100%;height:100%;');
@@ -268,7 +269,7 @@ function add_item(list, dragons, wyrmprints) {
 
             ex_img_2.setAttribute('src', defaultImage.src);
             ex_img_2.setAttribute('data-src', './images/other/' + list[key].ability2[0] + '.png');
-            ex_img_2.setAttribute('alt', list[key].ability2[1]);
+            ex_img_2.setAttribute('alt', '能力2');
             ex_img_2.setAttribute('title', list[key].ability2[1]);
             ex_img_2.setAttribute('loading', 'auto');
             ex_img_2.setAttribute('style', 'width:100%;height:100%;');
@@ -301,7 +302,7 @@ function add_item(list, dragons, wyrmprints) {
 
             ex_img_3.setAttribute('src', defaultImage.src);
             ex_img_3.setAttribute('data-src', './images/other/' + list[key].ability3[0] + '.png');
-            ex_img_3.setAttribute('alt', list[key].ability3[1]);
+            ex_img_3.setAttribute('alt', '能力3');
             ex_img_3.setAttribute('title', list[key].ability3[1]);
             ex_img_3.setAttribute('loading', 'auto');
             ex_img_3.setAttribute('style', 'width:100%;height:100%;');
@@ -344,16 +345,12 @@ function add_item(list, dragons, wyrmprints) {
         div2.appendChild(div_mid);
         div2.appendChild(div_right);
     }
-
-    // $('img').lazyload({ effect: "show", threshold: 100, container: $("#role-list") });
-
     bindEvent(list, dragons, wyrmprints);
     check_webp_feature(picture_lazyload);
-
-};
+}
 
 //绑定按键
-function bindEvent(list, dragons, wyrmprints) {
+function bindEvent(list) {
     $(".item-content").unbind();
 
     $(".item-content").each(function(index, el) {
@@ -365,7 +362,7 @@ function bindEvent(list, dragons, wyrmprints) {
             });
         }
     });
-};
+}
 
 //弹出框
 function showAlertView(keyDic, dragons, wyrmprints) {
@@ -495,57 +492,8 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     ndiv.appendChild(bdiv_1);
     ndiv.appendChild(bdiv_2);
     //技能表格
-
-    // var mtable = document.createElement('table');
-    // mtable.setAttribute('style', 'margin-top:10px;');
-    // mtable.setAttribute('border', '1');
-
-    // var tr_1 = document.createElement('tr');
-    // var tr_2 = document.createElement('tr');
-    // var tr_3 = document.createElement('tr');
-    // var tr_4 = document.createElement('tr');
-
-    // mtable.appendChild(tr_1);
-    // mtable.appendChild(tr_2);
-    // mtable.appendChild(tr_3);
-    // mtable.appendChild(tr_4);
-
-    // var td_1 = document.createElement('td');
-    // td_1.innerText = '技能一    Lv.Max';
-    // td_1.setAttribute('width', '350px');
-    // td_1.setAttribute('height', '30px');
-    // td_1.setAttribute('align', 'left');
-    // td_1.setAttribute('style', 'background-color:red;color:white;');
-
-    // var td_2 = document.createElement('td');
-    // td_2.setAttribute('width', '350px');
-    // td_2.setAttribute('height', '100px');
-    // td_2.setAttribute('align', 'left');
-    // td_2.innerText = keyDic.skill1;
-
-    // var td_3 = document.createElement('td');
-    // td_3.innerText = '技能二    Lv.Max';
-    // td_3.setAttribute('width', '350px');
-    // td_3.setAttribute('height', '30px');
-    // td_3.setAttribute('align', 'left');
-    // td_3.setAttribute('style', 'background-color:red;color:white;');
-
-    // var td_4 = document.createElement('td');
-    // td_4.setAttribute('width', '350px');
-    // td_4.setAttribute('height', '100px');
-    // td_4.setAttribute('align', 'left');
-    // td_4.innerText = keyDic.skill2;
-
-    // tr_1.appendChild(td_1);
-    // tr_2.appendChild(td_2);
-    // tr_3.appendChild(td_3);
-    // tr_4.appendChild(td_4);
-
-    // tdiv.appendChild(mtable);
-
     return tdiv;
-
-};
+}
 
 export function initAds() {
 
@@ -559,7 +507,7 @@ export function initAds() {
     var isBreak = false;
     var result = [];
 
-    add_item(adventurers, dragons, wyrmprints);
+    add_item(adventurers);
 
     $("input[name='Rarity']").each(function(index, el) {
         $(this).on('change', function(event) {
@@ -572,7 +520,7 @@ export function initAds() {
             }
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         });
     });
 
@@ -587,7 +535,7 @@ export function initAds() {
             }
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         });
     });
 
@@ -602,7 +550,7 @@ export function initAds() {
             }
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         });
     });
 
@@ -616,7 +564,7 @@ export function initAds() {
             }
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         });
     });
 
@@ -630,7 +578,7 @@ export function initAds() {
             }
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         });
     });
 
@@ -639,7 +587,7 @@ export function initAds() {
         isRes = $(this).is(':checked');
         result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
         $('#role-list').empty();
-        add_item(result, dragons, wyrmprints);
+        add_item(result);
     });
 
     $("#checkbox_other_6").click(function(event) {
@@ -647,7 +595,7 @@ export function initAds() {
         isBreak = $(this).is(':checked');
         result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
         $('#role-list').empty();
-        add_item(result, dragons, wyrmprints);
+        add_item(result);
     });
 
     $("#searchInput").on('input', function(event) {
@@ -662,30 +610,33 @@ export function initAds() {
             result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
             result = searchInputText(result, $(this).val());
             $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            add_item(result);
         }
 
     });
 
     $("#clearButton").click(function(event) {
         /* Act on the event */
+        if ($("#searchInput").val().length == 0) {
+            return;
+        }
         $("#searchInput").val("");
         result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
         $('#role-list').empty();
-        add_item(result, dragons, wyrmprints);
+        add_item(result);
     });
-
-};
+}
 
 $(document).ready(function() {
     // 开始写 jQuery 代码..
     initAds();
     $("#role-list").scroll(function() {
-        check_webp_feature(picture_lazyload);
+        picture_lazyload(isWebp);;
     });
 
 });
 
+// 图片懒加载 预加载
 var imageCacheArray = new Array();
 
 function check_webp_feature(callback) {
@@ -694,20 +645,24 @@ function check_webp_feature(callback) {
     var img = new Image();
     img.onload = function() {
         var result = (img.width > 0) && (img.height > 0);
+        isWebp = result;
         callback(result);
     };
     img.onerror = function() {
         callback(false);
     };
     img.src = "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
-};
+}
 
 function picture_lazyload(isSupportWebp) {
     // body...
+    var scrollTop = $("#role-list").scrollTop();
+    var scrollheight = $("#role-list").height();
+    
     $('.lazy').each(function(index, el) {
 
         var a = el.offsetTop;
-        if (a >= $("#role-list").scrollTop() && a < ($("#role-list").scrollTop() + $("#role-list").height())) {
+        if (a >= scrollTop && a < (scrollTop + scrollheight)) {
 
             var keyID = $(this).attr('id');
             var children_source = $(this).children('source');
@@ -738,7 +693,5 @@ function picture_lazyload(isSupportWebp) {
             }
             $(this).removeClass('lazy');
         }
-
     });
-
-};
+}

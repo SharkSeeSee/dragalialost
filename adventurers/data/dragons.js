@@ -284,6 +284,6 @@ const dragons = {
 		name:'幽影',
 		icon:'50012'
 	},
-}
+};
 
 export default dragons;

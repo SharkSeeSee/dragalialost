@@ -1,10 +1,14 @@
-import wyrmprints from './wyrmprints.js';
-import dragons from './dragons.js';
-import adventurers_5 from './adventurers_5.js';
-import adventurers_4 from './adventurers_4.js';
-import adventurers_3 from './adventurers_3.js';
+import wyrmprints from './wyrmprints.js'
+import dragons from './dragons.js'
+import adventurers_5 from './adventurers_5.js'
+import adventurers_4 from './adventurers_4.js'
+import adventurers_3 from './adventurers_3.js'
 
+var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
 var adventurers = Object.assign(adventurers_5, adventurers_4, adventurers_3);
+var isWebp = false;
+var defaultImage = new Image();
+defaultImage.src = defaultPic;
 
 const trial_wind_advs = [{
         aid: '1010202',
@@ -181,7 +185,7 @@ const trial_shadow_advs = [{
     }
 ];
 
-function addItems(adventurer, dragons, wyrmprints, tablename) {
+function addItems(adventurer, mDragons, mWyrmprints, tablename) {
     // body...
     var tr = document.createElement('tr');
 
@@ -189,13 +193,17 @@ function addItems(adventurer, dragons, wyrmprints, tablename) {
     td_0.setAttribute('align', 'center');
 
     var pic_0 = document.createElement('picture');
+    pic_0.setAttribute('id', 'icon-' + adventurer.rid);
+    pic_0.setAttribute('class', 'lazy');
 
     var source_0 = document.createElement('source');
-    source_0.setAttribute('srcset', './images/adventures/' + adventurer.image + '.webp');
+    source_0.setAttribute('srcset', defaultImage.src);
+    source_0.setAttribute('data-src', './images/adventures/' + adventurer.image + '.webp');
     source_0.setAttribute('type', 'image/webp');
 
     var img_0 = document.createElement('img');
-    img_0.setAttribute('data-original', './images/adventures/' + adventurer.image + '.png');
+    img_0.setAttribute('src', defaultImage.src);
+    img_0.setAttribute('data-src', './images/adventures/' + adventurer.image + '.png');
     img_0.setAttribute('style', 'width:80px;')
     img_0.setAttribute('alt', adventurer.name);
     img_0.setAttribute('title', adventurer.name);
@@ -207,19 +215,23 @@ function addItems(adventurer, dragons, wyrmprints, tablename) {
     var td_1 = document.createElement('td');
     td_1.setAttribute('align', 'center');
 
-    for (var i = 0; i < dragons.length; i++) {
+    for (var i = 0; i < mDragons.length; i++) {
 
         var dragon_pic = document.createElement('picture');
+        dragon_pic.setAttribute('id', 'dragon-' + mDragons[i].mid);
+        dragon_pic.setAttribute('class', 'lazy');
 
         var dragon_source = document.createElement('source');
-        dragon_source.setAttribute('srcset', './images/dragon/' + dragons[i].icon + '.webp');
+        dragon_source.setAttribute('srcset', defaultImage.src);
+        dragon_source.setAttribute('data-src', './images/dragon/' + mDragons[i].icon + '.webp');
         dragon_source.setAttribute('type', 'image/webp');
 
         var dragon_img = document.createElement('img');
-        dragon_img.setAttribute('data-original', './images/dragon/' + dragons[i].icon + '.png');
+        dragon_img.setAttribute('src', defaultImage.src);
+        dragon_img.setAttribute('data-src', './images/dragon/' + mDragons[i].icon + '.png');
         dragon_img.setAttribute('style', 'width:40px;margin:5px;')
-        dragon_img.setAttribute('alt', dragons[i].name);
-        dragon_img.setAttribute('title', dragons[i].name);
+        dragon_img.setAttribute('alt', mDragons[i].name);
+        dragon_img.setAttribute('title', mDragons[i].name);
 
         dragon_pic.appendChild(dragon_source);
         dragon_pic.appendChild(dragon_img);
@@ -230,19 +242,24 @@ function addItems(adventurer, dragons, wyrmprints, tablename) {
     var td_2 = document.createElement('td');
     td_2.setAttribute('align', 'center');
 
-    for (var i = 0; i < wyrmprints.length; i++) {
+    for (var i = 0; i < mWyrmprints.length; i++) {
 
         var wyr_pic = document.createElement('picture');
+        wyr_pic.setAttribute('id', 'wyr-' + mWyrmprints[i].wid);
+        wyr_pic.setAttribute('class', 'lazy');
 
         var wyr_source = document.createElement('source');
-        wyr_source.setAttribute('srcset', './images/hf/' + wyrmprints[i].img + '.webp');
+        wyr_source.setAttribute('srcset', defaultImage.src);
+        wyr_source.setAttribute('data-src', './images/hf/' + mWyrmprints[i].img + '.webp');
         wyr_source.setAttribute('type', 'image/webp');
 
         var wyr_img = document.createElement('img');
-        wyr_img.setAttribute('data-original', './images/hf/' + wyrmprints[i].img + '.png');
+        wyr_img.setAttribute('src', defaultImage.src);
+        wyr_img.setAttribute('data-src', './images/hf/' + mWyrmprints[i].img + '.png');
         wyr_img.setAttribute('style', 'width:40px;margin:5px;')
-        wyr_img.setAttribute('alt', wyrmprints[i].name);
-        wyr_img.setAttribute('title', wyrmprints[i].name);
+        wyr_img.setAttribute('alt', mWyrmprints[i].name);
+        wyr_img.setAttribute('title', mWyrmprints[i].name);
+
 
         wyr_pic.appendChild(wyr_source);
         wyr_pic.appendChild(wyr_img);
@@ -259,7 +276,6 @@ function addItems(adventurer, dragons, wyrmprints, tablename) {
 
     document.getElementById(tablename).appendChild(tr);
 
-    // $('img').lazyload({ effect: "show", threshold: 100, container: $(tablename) });
 }
 
 
@@ -381,4 +397,74 @@ function initTrialTeam() {
 
 $(document).ready(function() {
     initTrialTeam();
+    check_webp_feature(picture_lazyload);
+
+    $(document).scroll(function() {
+        picture_lazyload(isWebp);
+    });
 });
+
+
+// 图片懒加载 预加载
+var imageCacheArray = new Array();
+
+function check_webp_feature(callback) {
+    // body...
+
+    var img = new Image();
+    img.onload = function() {
+        var result = (img.width > 0) && (img.height > 0);
+        isWebp = result;
+        callback(result);
+    };
+    img.onerror = function() {
+        callback(false);
+    };
+    img.src = "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
+}
+
+function picture_lazyload(isSupportWebp) {
+    // body...
+    var scrolltop = $(document).scrollTop();
+    var scrollheight = $(document).height();
+    var scrollleft = $(document).scrollLeft();
+    var scrollwidth = $(document).width();
+
+    $('.lazy').each(function(index, el) {
+
+        var x = el.getBoundingClientRect().left;
+        var y = el.getBoundingClientRect().top;
+
+        if (y >= scrolltop && y < (scrolltop + scrollheight) && x >= scrollleft && x < (scrollleft + scrollwidth)) {
+
+            var keyID = $(this).attr('id');
+            var children_source = $(this).children('source');
+            var children_img = $(this).children('img');
+
+            if (isSupportWebp) {
+                if (imageCacheArray[keyID]) {
+                    children_source.attr('srcset', imageCacheArray[keyID].src);
+                } else {
+                    var tempImage = new Image();
+                    tempImage.src = $(this).children('source').attr("data-src");
+                    tempImage.onload = function() {
+                        imageCacheArray[keyID] = tempImage;
+                        children_source.attr('srcset', tempImage.src);
+                    }
+                }
+            } else {
+                if (imageCacheArray[keyID]) {
+                    children_img.attr('src', imageCacheArray[keyID].src);
+                } else {
+                    var tempImage = new Image();
+                    tempImage.src = $(this).children('img').attr("data-src");
+                    tempImage.onload = function() {
+                        imageCacheArray[keyID] = tempImage;
+                        children_img.attr('srcset', tempImage.src);
+                    }
+                }
+            }
+
+        }
+    });
+}

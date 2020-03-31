@@ -210,6 +210,6 @@ const wrymprints = {
         img: '10210',
     },
 
-}
+};
 
 export default wrymprints;

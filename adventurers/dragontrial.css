@@ -3,6 +3,7 @@ body {
     overflow-x: scroll;
     overflow-y: scroll;
     display: flex;
+    overflow: auto;
 }
 
 .dungeons {

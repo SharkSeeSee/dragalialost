@@ -1,9 +1,11 @@
 body {
     background-color: #e6e6e6;
-    overflow-x: hidden;
+	overflow-x: hidden;
     overflow-y: scroll;
     display: flex;
+    overflow: auto;
 }
+
 
 .dungeons {
     background-color: white;

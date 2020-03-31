@@ -12,7 +12,7 @@ div {
     top: 0;
     left: 0px;
     bottom: 0;
-    right: 520px;
+    right: 420px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -67,6 +67,15 @@ div {
 }
 
 /*筛选列表*/
+.options {
+    position: absolute;
+    top: 0;
+    bottom: 0px;
+    right: 0px;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #EAEAEA;
+}
 
 .search {
     height: 40px;
@@ -93,16 +102,6 @@ div {
     border: 0px;
     border-radius: 5px;
     outline: none;
-}
-
-.options {
-    position: absolute;
-    top: 0;
-    bottom: 0px;
-    right: 0px;
-    width: 500px;
-    padding: 10px;
-    border: 1px solid #EAEAEA;
 }
 
 .options-0 div {
