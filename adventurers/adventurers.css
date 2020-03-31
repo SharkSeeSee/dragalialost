@@ -1,21 +1,13 @@
-body {
-    display: flex;
-}
+body {}
 
-div {
-    display: block;
-}
+.container {}
 
 /*角色列表*/
 #role-list {
-    position: absolute;
-    top: 0;
-    left: 0px;
-    bottom: 0;
-    right: 420px;
+  
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #e6e6e6;
@@ -27,7 +19,7 @@ div {
     width: 250px;
     height: 100px;
     padding: 5px;
-    margin: 5px 5px;
+    margin: 10px 10px;
     cursor: pointer;
     box-shadow: darkgrey 0px 1px 1px 1px; //边框阴影
     border: 1px solid darkgrey;
@@ -68,11 +60,8 @@ div {
 
 /*筛选列表*/
 .options {
-    position: absolute;
-    top: 0;
-    bottom: 0px;
-    right: 0px;
-    width: 400px;
+   
+    height: 100%;
     padding: 10px;
     border: 1px solid #EAEAEA;
 }
@@ -106,35 +95,27 @@ div {
 
 .options-0 div {
     height: 55px;
-    display: flex;
 }
 
 .options_star div {
-    width: 33%;
-    margin-left: 8px;
-    margin-top: 10px;
+  width: 33%;
 }
 
 .options_element div {
-    width: 20%;
-    margin-left: 8px;
-    margin-top: 10px;
+
 }
 
 .options_weapon div {
-    width: 12.5%;
-    margin-left: 8px;
-    margin-top: 10px;
+
+  
 }
 
 .options_res div {
-    width: 12%;
-    margin-left: 8px;
-    margin-top: 10px;
+   
 }
 
-label img,
-picture {
+label picture,
+img {
     user-select: none;
     height: 25px;
 }
@@ -144,10 +125,6 @@ picture {
 }
 
 .checkbox label {
-    flex: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 35px;
     box-shadow: darkgrey 0px 1px 2px 1px; //边框阴影
 }
@@ -177,10 +154,10 @@ picture {
     user-select: none;
 }
 
-.effect div{
+.effect div {
     width: 100%;
 }
 
-.other div{
+.other div {
     width: 100%;
 }
