@@ -1,29 +1,39 @@
 body {
     background-color: #e6e6e6;
-	overflow-x: hidden;
-    overflow-y: scroll;
-    display: flex;
-    overflow: auto;
+    overflow: hidden;
 }
 
+#main {
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+}
 
 .dungeons {
+    align-self: baseline;
     background-color: white;
-    float: left;
     margin: 5px;
     padding: 5px;
-    height: auto;
+    width: 410px;
     box-shadow: darkgrey 0px 1px 2px 1px;
 }
 
-.agito_img img {
-    width: 500px;
+.trial_img img {
+    width: 400px;
+    height: 263px;
 }
 
 .team table {
-    width: 500px;
+    width: 400px;
     border-collapse: collapse;
     align: center;
+    table-layout: fixed;
 }
 
 th {
@@ -31,6 +41,7 @@ th {
     border: 1px solid #aaa;
     color: white;
     font-size: 14px;
+
 }
 
 td {

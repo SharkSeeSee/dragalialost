@@ -1,8 +1,11 @@
-import wyrmprints from './wyrmprints.js'
-import dragons from './dragons.js'
-import adventurers_5 from './adventurers_5.js'
-import adventurers_4 from './adventurers_4.js'
-import adventurers_3 from './adventurers_3.js'
+import _ from 'lodash';
+import $ from 'expose-loader?$!jquery';
+import wyrmprints from './wyrmprints.js';
+import dragons from './dragons.js';
+import adventurers_5 from './adventurers_5.js';
+import adventurers_4 from './adventurers_4.js';
+import adventurers_3 from './adventurers_3.js';
+import '../styles/agito.css';
 
 var isWebp = false;
 var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
@@ -99,12 +102,12 @@ function addItems(adventurer, rDragons, rWyrmprints, tablename) {
 
     var source_0 = document.createElement('source');
     source_0.setAttribute('srcset', defaultImage.src);
-    source_0.setAttribute('data-src', './images/adventures/' + adventurer.image + '.webp');
+    source_0.setAttribute('data-src', '/dragalialost/public/images/adventures/' + adventurer.image + '.webp');
     source_0.setAttribute('type', 'image/webp');
 
     var img_0 = document.createElement('img');
     img_0.setAttribute('src', defaultImage.src);
-    img_0.setAttribute('data-src', './images/adventures/' + adventurer.image + '.png');
+    img_0.setAttribute('data-src', '/dragalialost/public/images/adventures/' + adventurer.image + '.png');
     img_0.setAttribute('style', 'width:80px;')
     img_0.setAttribute('alt', adventurer.name);
     img_0.setAttribute('title', adventurer.name);
@@ -124,12 +127,12 @@ function addItems(adventurer, rDragons, rWyrmprints, tablename) {
 
         var dragon_source = document.createElement('source');
         dragon_source.setAttribute('srcset', defaultImage.src);
-        dragon_source.setAttribute('data-src', './images/dragon/' + rDragons[i].icon + '.webp');
+        dragon_source.setAttribute('data-src', '/dragalialost/public/images/dragon/' + rDragons[i].icon + '.webp');
         dragon_source.setAttribute('type', 'image/webp');
 
         var dragon_img = document.createElement('img');
         dragon_img.setAttribute('src', defaultImage.src);
-        dragon_img.setAttribute('data-src', './images/dragon/' + rDragons[i].icon + '.png');
+        dragon_img.setAttribute('data-src', '/dragalialost/public/images/dragon/' + rDragons[i].icon + '.png');
         dragon_img.setAttribute('style', 'width:40px;margin:5px;')
         dragon_img.setAttribute('alt', rDragons[i].name);
         dragon_img.setAttribute('title', rDragons[i].name);
@@ -151,12 +154,12 @@ function addItems(adventurer, rDragons, rWyrmprints, tablename) {
 
         var wyr_source = document.createElement('source');
         wyr_source.setAttribute('srcset', defaultImage.src);
-        wyr_source.setAttribute('data-src', './images/hf/' + rWyrmprints[i].img + '.webp');
+        wyr_source.setAttribute('data-src', '/dragalialost/public/images/hf/' + rWyrmprints[i].img + '.webp');
         wyr_source.setAttribute('type', 'image/webp');
 
         var wyr_img = document.createElement('img');
         wyr_img.setAttribute('src', defaultImage.src);
-        wyr_img.setAttribute('data-src', './images/hf/' + rWyrmprints[i].img + '.png');
+        wyr_img.setAttribute('data-src', '/dragalialost/public/images/hf/' + rWyrmprints[i].img + '.png');
         wyr_img.setAttribute('style', 'width:40px;margin:5px;')
         wyr_img.setAttribute('alt', rWyrmprints[i].name);
         wyr_img.setAttribute('title', rWyrmprints[i].name);
@@ -226,7 +229,7 @@ $(document).ready(function() {
     initLightAgitoTeam();
 
     check_webp_feature(picture_lazyload);
-    $(document).scroll(function() {
+    $("#main").scroll(function() {
         picture_lazyload(isWebp);
     });
 
@@ -257,10 +260,12 @@ function picture_lazyload(isSupportWebp) {
     var scrollleft = $(document).scrollLeft();
     var scrollwidth = $(document).width();
 
+    console.log(scrollheight + scrolltop);
+
     $('.lazy').each(function(index, el) {
 
-        var x = el.getBoundingClientRect().left;
-        var y = el.getBoundingClientRect().top;
+        var x = $(this).offset().left;
+        var y = $(this).offset().top;
 
         if (y >= scrolltop && y < (scrolltop + scrollheight) && x >= scrollleft && x < (scrollleft + scrollwidth)) {
 
@@ -287,11 +292,13 @@ function picture_lazyload(isSupportWebp) {
                     tempImage.src = $(this).children('img').attr("data-src");
                     tempImage.onload = function() {
                         imageCacheArray[keyID] = tempImage;
-                        children_img.attr('srcset', tempImage.src);
+                        children_img.attr('src', tempImage.src);
                     }
                 }
             }
-
+            $(this).removeClass('lazy');
         }
+
+        
     });
 }

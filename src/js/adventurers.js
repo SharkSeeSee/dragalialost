@@ -1,8 +1,11 @@
-import wyrmprints from './wyrmprints.js'
-import dragons from './dragons.js'
-import adventurers_5 from './adventurers_5.js'
-import adventurers_4 from './adventurers_4.js'
-import adventurers_3 from './adventurers_3.js'
+import _ from 'lodash';
+import $ from 'expose-loader?$!jquery';
+import wyrmprints from './wyrmprints.js';
+import dragons from './dragons.js';
+import adventurers_5 from './adventurers_5.js';
+import adventurers_4 from './adventurers_4.js';
+import adventurers_3 from './adventurers_3.js';
+import '../styles/adventurers.css';
 
 var isWebp = false;
 var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
@@ -175,13 +178,13 @@ function add_item(list) {
         var source1 = document.createElement('source');
 
         source1.setAttribute('srcset', defaultImage.src);
-        source1.setAttribute('data-src', './images/adventures/' + list[key].image + '.webp');
+        source1.setAttribute('data-src', '/dragalialost/public/images/adventures/' + list[key].image + '.webp');
         source1.setAttribute('type', 'image/webp');
 
         var img1 = document.createElement('img');
 
         img1.setAttribute('src', defaultImage.src);
-        img1.setAttribute('data-src', './images/adventures/' + list[key].image + '.png');
+        img1.setAttribute('data-src', '/dragalialost/public/images/adventures/' + list[key].image + '.png');
         img1.setAttribute('alt', list[key].name);
         img1.setAttribute('title', list[key].name);
         img1.setAttribute('loading', 'auto');
@@ -193,7 +196,7 @@ function add_item(list) {
 
         //文
         var div_mid = document.createElement("div");
-        div_mid.setAttribute('style', 'width:100px;height:auto;margin-top:5px;');
+        div_mid.setAttribute('style', 'width:140px;height:auto;margin-top:5px;');
 
         var div3 = document.createElement("div");
         var div4 = document.createElement("div");
@@ -228,14 +231,14 @@ function add_item(list) {
             var ex_source_1 = document.createElement('source');
 
             ex_source_1.setAttribute('srcset', defaultImage.src);
-            ex_source_1.setAttribute('data-src', './images/other/' + list[key].ability1[0] + '.webp');
+            ex_source_1.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability1[0] + '.webp');
             ex_source_1.setAttribute('type', 'image/webp');
             ex_source_1.setAttribute('style', 'width:100%;height:100%;');
 
             var ex_img_1 = document.createElement('img');
 
             ex_img_1.setAttribute('src', defaultImage.src);
-            ex_img_1.setAttribute('data-src', './images/other/' + list[key].ability1[0] + '.png');
+            ex_img_1.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability1[0] + '.png');
             ex_img_1.setAttribute('alt', '能力1');
             ex_img_1.setAttribute('title', list[key].ability1[1]);
             ex_img_1.setAttribute('loading', 'auto');
@@ -261,14 +264,14 @@ function add_item(list) {
             var ex_source_2 = document.createElement('source');
 
             ex_source_2.setAttribute('srcset', defaultImage.src);
-            ex_source_2.setAttribute('data-src', './images/other/' + list[key].ability2[0] + '.webp');
+            ex_source_2.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability2[0] + '.webp');
             ex_source_2.setAttribute('type', 'image/webp');
             ex_source_2.setAttribute('style', 'width:100%;height:100%;');
 
             var ex_img_2 = document.createElement('img');
 
             ex_img_2.setAttribute('src', defaultImage.src);
-            ex_img_2.setAttribute('data-src', './images/other/' + list[key].ability2[0] + '.png');
+            ex_img_2.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability2[0] + '.png');
             ex_img_2.setAttribute('alt', '能力2');
             ex_img_2.setAttribute('title', list[key].ability2[1]);
             ex_img_2.setAttribute('loading', 'auto');
@@ -294,14 +297,14 @@ function add_item(list) {
             var ex_source_3 = document.createElement('source');
 
             ex_source_3.setAttribute('srcset', defaultImage.src);
-            ex_source_3.setAttribute('data-src', './images/other/' + list[key].ability3[0] + '.webp');
+            ex_source_3.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability3[0] + '.webp');
             ex_source_3.setAttribute('type', 'image/webp');
             ex_source_3.setAttribute('style', 'width:100%;height:100%;');
 
             var ex_img_3 = document.createElement('img');
 
             ex_img_3.setAttribute('src', defaultImage.src);
-            ex_img_3.setAttribute('data-src', './images/other/' + list[key].ability3[0] + '.png');
+            ex_img_3.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability3[0] + '.png');
             ex_img_3.setAttribute('alt', '能力3');
             ex_img_3.setAttribute('title', list[key].ability3[1]);
             ex_img_3.setAttribute('loading', 'auto');
@@ -389,12 +392,12 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_1 = document.createElement('source');
 
-    source_1.setAttribute('srcset', './images/dragon/' + dragons[keyDic.dragon].icon + '.webp');
+    source_1.setAttribute('srcset', '/dragalialost/public/images/dragon/' + dragons[keyDic.dragon].icon + '.webp');
     source_1.setAttribute('type', 'image/webp');
 
     var img_1 = document.createElement('img');
 
-    img_1.setAttribute('src', './images/dragon/' + dragons[keyDic.dragon].icon + '.png');
+    img_1.setAttribute('src', '/dragalialost/public/images/dragon/' + dragons[keyDic.dragon].icon + '.png');
     img_1.setAttribute('alt', dragons[keyDic.dragon].name);
     img_1.setAttribute('title', dragons[keyDic.dragon].name);
     img_1.setAttribute('loading', 'auto');
@@ -432,12 +435,12 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_2 = document.createElement('source');
 
-    source_2.setAttribute('srcset', './images/hf/' + wyrmprints[keyDic.hf1].img + '.webp');
+    source_2.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf1].img + '.webp');
     source_2.setAttribute('type', 'image/webp');
 
     var img_2 = document.createElement('img');
 
-    img_2.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf1].img + '.png');
+    img_2.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf1].img + '.png');
     img_2.setAttribute('alt', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('title', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('loading', 'auto');
@@ -462,12 +465,12 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_3 = document.createElement('source');
 
-    source_3.setAttribute('srcset', './images/hf/' + wyrmprints[keyDic.hf2].img + '.webp');
+    source_3.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf2].img + '.webp');
     source_3.setAttribute('type', 'image/webp');
 
     var img_3 = document.createElement('img');
 
-    img_3.setAttribute('src', './images/hf/' + wyrmprints[keyDic.hf2].img + '.png');
+    img_3.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf2].img + '.png');
     img_3.setAttribute('alt', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('title', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('loading', 'auto');
@@ -658,7 +661,7 @@ function picture_lazyload(isSupportWebp) {
     // body...
     var scrollTop = $("#role-list").scrollTop();
     var scrollheight = $("#role-list").height();
-    
+
     $('.lazy').each(function(index, el) {
 
         var a = el.offsetTop;

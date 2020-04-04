@@ -9,26 +9,26 @@ div {
 /*角色列表*/
 #role-list {
     height: 100vh;
-    margin-right: 400px;
+    margin-right: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #e6e6e6;
     float: left;
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-content: flex-start;
- 
+
 }
 
 .item-content {
     display: flex;
-    width: 250px;
+    width: 280px;
     height: 100px;
     padding: 5px;
-    margin:10px;
+    margin: 10px;
     cursor: pointer;
-    box-shadow: darkgrey 0px 1px 1px 1px; //边框阴影
+    box-shadow: darkgrey 0px 1px 1px 1px;
     border: 1px solid darkgrey;
     border-radius: 5px;
     white-space: pre-line;
@@ -36,7 +36,7 @@ div {
 }
 
 .item-content:hover {
-    box-shadow: #99CCFF 0px 2px 2px 2px; //边框阴影
+    box-shadow: #99CCFF 0px 2px 2px 2px;
 }
 
 .advs-item picture {
@@ -67,7 +67,7 @@ div {
 
 /*筛选列表*/
 .options {
-    width: 400px;
+    width: 300px;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -75,6 +75,7 @@ div {
     float: left;
     height: 100%;
     border: 1px solid #EAEAEA;
+    background-color: white;
 }
 
 .search {
@@ -106,31 +107,43 @@ div {
 }
 
 .options-0 div {
-    height: 40px;
+    height: 30px;
     margin-top: 10px;
 }
 
-.options_star div {
+.options_star div:nth-child(1) {
     float: left;
-    width: 30%;
+    width: 28%;
+    margin-left: 10px;
+}
+
+.options_star div:nth-child(2) {
+    float: left;
+    width: 28.9%;
+    margin-left: 10px;
+}
+
+.options_star div:nth-child(3) {
+    float: left;
+    width: 29.8%;
     margin-left: 10px;
 }
 
 .options_element div {
     float: left;
-    width: 17%;
+    width: 16%;
     margin-left: 10px;
 }
 
 .options_weapon div {
     float: left;
-    width: 9.7%;
+    width: 8.75%;
     margin-left: 10px;
 }
 
 .options_res div {
     float: left;
-    width: 8.3%;
+    width: 7.4%;
     margin-left: 10px;
 }
 
@@ -151,13 +164,13 @@ div {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
-    box-shadow: darkgrey 0px 1px 2px 1px; //边框阴影
+    height: 30px;
+    box-shadow: darkgrey 0px 1px 2px 1px;
 }
 
 .filer-img {
     user-select: none;
-    height: 25px;
+    height: 18px;
     width: auto;
 }
 
@@ -185,4 +198,22 @@ div {
 
 .other div {
     width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    #role-list {
+        margin-right: 0;
+    }
+    /*筛选列表*/
+    .options {
+        transform: translate3d(420px, 0, 0);
+        transition: all .5s ease;
+    }
+
+    .options.show{
+        z-index: 999;
+        transform: translate3d(0, 0, 0);
+        transition: all .5s ease;
+    }
+
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.bundle.js" rel='preload'></script>
+</head>
+
+<body>
+    <div id='app'>
+        <div id='header' v-if="seen">
+            <select id="select-menu" v-model="selected" @change="selectMenuChange($event)">
+                <option value="0">人物</option>
+                <option value="1">真龙试炼</option>
+                <option value="2">阿基德</option>
+            </select>
+            <picture id="filter-button" v-if="isFilterShow" @click="filterShow($event)">
+                <source srcset="../public/images/other/filter.webp" type="image/webp">
+                <img src="../public/images/other/filter.png">
+            </picture>
+        </div>
+        <div class='main'>
+            <div class="menutop" v-if="!seen">
+                <div class="menuImage">
+                    <a href="https://dragalialost.com/">
+                        <picture>
+                            <source srcset="../public/images/other/logo_app.webp" type="image/webp">
+                            <img src="../public/images/other/logo_app.png">
+                        </picture>
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a href="#">人物</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">真龙试炼</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">阿基德</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="middle">
+                <iframe id="ifr1" name="myframe" src="/dragalialost/src/html/adventurers.html" scrolling="yes" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: 100%;"> </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="loading">
+        <div>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+    <script src="../src/js/header.js"></script>
+    <script src="index.bundle.js"></script>
+</body>
+
+</html>

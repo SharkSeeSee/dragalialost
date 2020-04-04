@@ -2,16 +2,12 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="adventurers.css" />
     <meta charset="UTF-8">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>人物</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" async></script>
-    <script type="text/javascript" src="./data/pinyin.js"></script>
-    <script src="./data/adventurers.js" type="module"></script>
+    <script src="/dragalialost/dist/adventurer.bundle.js"></script>
 </head>
 
 <body>
@@ -28,8 +24,8 @@
                     <input id="checkbox_star_3" type="checkbox" name="Rarity" value="3">
                     <label for="checkbox_star_3" title="3星">
                         <picture class="filer-img">
-                            <source srcset="./images/other/star_3.webp">
-                            <img src="./images/other/star_3.png" class="filer-img" alt="3" title="3星">
+                            <source srcset="/dragalialost/public/images/other/star_3.webp">
+                            <img src="/dragalialost/public/images/other/star_3.png" class="filer-img" alt="3" title="3星">
                         </picture>
                     </label>
                 </div>
@@ -37,8 +33,8 @@
                     <input id="checkbox_star_4" type="checkbox" name="Rarity" value="4">
                     <label for="checkbox_star_4" title="4星">
                         <picture class="filer-img">
-                            <source srcset="./images/other/star_4.webp">
-                            <img src="./images/other/star_4.png" class="filer-img" alt="4" title="4星">
+                            <source srcset="/dragalialost/public/images/other/star_4.webp">
+                            <img src="/dragalialost/public/images/other/star_4.png" class="filer-img" alt="4" title="4星">
                         </picture>
                     </label>
                 </div>
@@ -46,8 +42,8 @@
                     <input id="checkbox_star_5" type="checkbox" name="Rarity" value="5">
                     <label for="checkbox_star_5" title="5星">
                         <picture class="filer-img">
-                            <source srcset="./images/other/star_5.webp" type="image/webp">
-                            <img src="./images/other/star_5.png" class="filer-img" alt="5" title="5星">
+                            <source srcset="/dragalialost/public/images/other/star_5.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/star_5.png" class="filer-img" alt="5" title="5星">
                         </picture>
                     </label>
                 </div>
@@ -57,8 +53,8 @@
                     <input id="checkbox_element_0" type="checkbox" name="Element" value="Fire">
                     <label for="checkbox_element_0" title="火">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Element_Fire.webp" type="image/webp">
-                            <img src="./images/other/Element_Fire.png" class="filer-img" alt="Fire" title="火">
+                            <source srcset="/dragalialost/public/images/other/Element_Fire.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Element_Fire.png" class="filer-img" alt="Fire" title="火">
                         </picture>
                     </label>
                 </div>
@@ -66,8 +62,8 @@
                     <input id="checkbox_element_1" type="checkbox" name="Element" value="Water">
                     <label for="checkbox_element_1" title="水">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Element_Water.webp" type="image/webp">
-                            <img src="./images/other/Element_Water.png" class="filer-img" alt="Water" title="水">
+                            <source srcset="/dragalialost/public/images/other/Element_Water.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Element_Water.png" class="filer-img" alt="Water" title="水">
                         </picture>
                     </label>
                 </div>
@@ -75,8 +71,8 @@
                     <input id="checkbox_element_2" type="checkbox" name="Element" value="Wind">
                     <label for="checkbox_element_2" title="风">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Element_Wind.webp" type="image/webp">
-                            <img src="./images/other/Element_Wind.png" class="filer-img" alt="Wind" title="风">
+                            <source srcset="/dragalialost/public/images/other/Element_Wind.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Element_Wind.png" class="filer-img" alt="Wind" title="风">
                         </picture>
                     </label>
                 </div>
@@ -84,8 +80,8 @@
                     <input id="checkbox_element_3" type="checkbox" name="Element" value="Light">
                     <label for="checkbox_element_3" title="光">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Element_Light.webp" type="image/webp">
-                            <img src="./images/other/Element_Light.png" class="filer-img" alt="Light" title="光">
+                            <source srcset="/dragalialost/public/images/other/Element_Light.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Element_Light.png" class="filer-img" alt="Light" title="光">
                         </picture>
                     </label>
                 </div>
@@ -93,8 +89,8 @@
                     <input id="checkbox_element_4" type="checkbox" name="Element" value="Shadow">
                     <label for="checkbox_element_4" title="暗">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Element_Shadow.webp" type="image/webp">
-                            <img src="./images/other/Element_Shadow.png" class="filer-img" alt="Shadow" title="暗">
+                            <source srcset="/dragalialost/public/images/other/Element_Shadow.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Element_Shadow.png" class="filer-img" alt="Shadow" title="暗">
                         </picture>
                     </label>
                 </div>
@@ -104,8 +100,8 @@
                     <input id="checkbox_weapon_0" type="checkbox" name="Weapon" value="Sword">
                     <label for="checkbox_weapon_0" title="剑">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Sword.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Sword.png" class="filer-img" alt="Sword" title="剑">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Sword.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Sword.png" class="filer-img" alt="Sword" title="剑">
                         </picture>
                     </label>
                 </div>
@@ -113,8 +109,8 @@
                     <input id="checkbox_weapon_1" type="checkbox" name="Weapon" value="Blade">
                     <label for="checkbox_weapon_1" title="刀">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Blade.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Blade.png" class="filer-img" alt="Blade" title="刀">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Blade.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Blade.png" class="filer-img" alt="Blade" title="刀">
                         </picture>
                     </label>
                 </div>
@@ -122,8 +118,8 @@
                     <input id="checkbox_weapon_2" type="checkbox" name="Weapon" value="Dagger">
                     <label for="checkbox_weapon_2" title="匕">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Dagger.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Dagger.png" class="filer-img" alt="Dagger" title="匕">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Dagger.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Dagger.png" class="filer-img" alt="Dagger" title="匕">
                         </picture>
                     </label>
                 </div>
@@ -131,8 +127,8 @@
                     <input id="checkbox_weapon_3" type="checkbox" name="Weapon" value="Axe">
                     <label for="checkbox_weapon_3" title="斧">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Axe.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Axe.png" class="filer-img" alt="Axe" title="斧">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Axe.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Axe.png" class="filer-img" alt="Axe" title="斧">
                         </picture>
                     </label>
                 </div>
@@ -140,8 +136,8 @@
                     <input id="checkbox_weapon_4" type="checkbox" name="Weapon" value="Lance">
                     <label for="checkbox_weapon_4" title="枪">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Lance.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Lance.png" class="filer-img" alt="Lance" title="枪">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Lance.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Lance.png" class="filer-img" alt="Lance" title="枪">
                         </picture>
                     </label>
                 </div>
@@ -149,8 +145,8 @@
                     <input id="checkbox_weapon_5" type="checkbox" name="Weapon" value="Bow">
                     <label for="checkbox_weapon_5" title="弓">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Bow.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Bow.png" class="filer-img" alt="Bow" title="弓">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Bow.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Bow.png" class="filer-img" alt="Bow" title="弓">
                         </picture>
                     </label>
                 </div>
@@ -158,8 +154,8 @@
                     <input id="checkbox_weapon_6" type="checkbox" name="Weapon" value="Wand">
                     <label for="checkbox_weapon_6" title="魔杖">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Wand.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Wand.png" class="filer-img" alt="Wand" title="魔杖">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Wand.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Wand.png" class="filer-img" alt="Wand" title="魔杖">
                         </picture>
                     </label>
                 </div>
@@ -167,8 +163,8 @@
                     <input id="checkbox_weapon_7" type="checkbox" name="Weapon" value="Staff">
                     <label for="checkbox_weapon_7" title="法杖">
                         <picture class="filer-img">
-                            <source srcset="./images/other/Weapon_Staff.webp" type="image/webp">
-                            <img src="./images/other/Weapon_Staff.png" class="filer-img" alt="Staff" title="法杖">
+                            <source srcset="/dragalialost/public/images/other/Weapon_Staff.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/Weapon_Staff.png" class="filer-img" alt="Staff" title="法杖">
                         </picture>
                     </label>
                 </div>
@@ -178,8 +174,8 @@
                     <input id="checkbox_res_0" type="checkbox" name="Resistance" value="ablilities_101">
                     <label for="checkbox_res_0" title="睡眠抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_101.webp" type="image/webp">
-                            <img src="./images/other/ablilities_101.png" class="filer-img" alt="睡眠抗性" title="睡眠抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_101.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_101.png" class="filer-img" alt="睡眠抗性" title="睡眠抗性">
                         </picture>
                     </label>
                 </div>
@@ -187,8 +183,8 @@
                     <input id="checkbox_res_1" type="checkbox" name="Resistance" value="ablilities_102">
                     <label for="checkbox_res_1" title="昏迷抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_102.webp" type="image/webp">
-                            <img src="./images/other/ablilities_102.png" class="filer-img" alt="昏迷抗性" title="昏迷抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_102.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_102.png" class="filer-img" alt="昏迷抗性" title="昏迷抗性">
                         </picture>
                     </label>
                 </div>
@@ -196,8 +192,8 @@
                     <input id="checkbox_res_2" type="checkbox" name="Resistance" value="ablilities_105">
                     <label for="checkbox_res_2" title="烧伤抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_105.webp" type="image/webp">
-                            <img src="./images/other/ablilities_105.png" class="filer-img" alt="烧伤抗性" title="烧伤抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_105.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_105.png" class="filer-img" alt="烧伤抗性" title="烧伤抗性">
                         </picture>
                     </label>
                 </div>
@@ -205,8 +201,8 @@
                     <input id="checkbox_res_3" type="checkbox" name="Resistance" value="ablilities_109">
                     <label for="checkbox_res_3" title="湿身抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_109.webp" type="image/webp">
-                            <img src="./images/other/ablilities_109.png" class="filer-img" alt="湿身抗性" title="湿身抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_109.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_109.png" class="filer-img" alt="湿身抗性" title="湿身抗性">
                         </picture>
                     </label>
                 </div>
@@ -214,8 +210,8 @@
                     <input id="checkbox_res_4" type="checkbox" name="Resistance" value="ablilities_110">
                     <label for="checkbox_res_4" title="冰冻抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_110.webp" type="image/webp">
-                            <img src="./images/other/ablilities_110.png" class="filer-img" alt="冰冻抗性" title="冰冻抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_110.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_110.png" class="filer-img" alt="冰冻抗性" title="冰冻抗性">
                         </picture class="filer-img">
                     </label>
                 </div>
@@ -223,8 +219,8 @@
                     <input id="checkbox_res_5" type="checkbox" name="Resistance" value="ablilities_114">
                     <label for="checkbox_res_5" title="诅咒抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_114.webp" type="image/webp">
-                            <img src="./images/other/ablilities_114.png" class="filer-img" alt="诅咒抗性" title="诅咒抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_114.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_114.png" class="filer-img" alt="诅咒抗性" title="诅咒抗性">
                         </picture>
                     </label>
                 </div>
@@ -232,8 +228,8 @@
                     <input id="checkbox_res_6" type="checkbox" name="Resistance" value="ablilities_115">
                     <label for="checkbox_res_6" title="中毒抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_115.webp" type="image/webp">
-                            <img src="./images/other/ablilities_115.png" class="filer-img" alt="中毒抗性" title="中毒抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_115.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_115.png" class="filer-img" alt="中毒抗性" title="中毒抗性">
                         </picture>
                     </label>
                 </div>
@@ -241,8 +237,8 @@
                     <input id="checkbox_res_7" type="checkbox" name="Resistance" value="ablilities_118">
                     <label for="checkbox_res_7" title="麻痹抗性">
                         <picture class="filer-img">
-                            <source srcset="./images/other/ablilities_118.webp" type="image/webp">
-                            <img src="./images/other/ablilities_118.png" class="filer-img" alt="麻痹抗性" title="麻痹抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_118.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_118.png" class="filer-img" alt="麻痹抗性" title="麻痹抗性">
                         </picture>
                     </label>
                 </div>
@@ -250,8 +246,8 @@
                     <input id="checkbox_res_8" type="checkbox" name="Resistance" value="ablilities_119">
                     <label for="checkbox_res_8" title="黑暗抗性">
                         <picture>
-                            <source srcset="./images/other/ablilities_119.webp" type="image/webp">
-                            <img src="./images/other/ablilities_119.png" class="filer-img" alt="黑暗抗性" title="黑暗抗性">
+                            <source srcset="/dragalialost/public/images/other/ablilities_119.webp" type="image/webp">
+                            <img src="/dragalialost/public/images/other/ablilities_119.png" class="filer-img" alt="黑暗抗性" title="黑暗抗性">
                         </picture>
                     </label>
                 </div>
