@@ -7,21 +7,25 @@ function goToPage(param) {
     $('.loading').fadeIn('slow/400/fast');
 }
 
-
 function addShowClass() {
     // body...
 
-    var frame = window.frames["myframe"].$(".options");
- 
-    frame.addClass("show");
+    var frame_show = window.frames["myframe"].$(".show");
 
-    console.log(frame);
+    if (frame_show.length != 0) {
+        frame_show.removeClass("show");
+        $("#filter-button source").attr('srcset', '../public/images/other/filter.webp');
+    } else {
+        var frame = window.frames["myframe"].$(".options");
+        $("#filter-button source").attr('srcset', '../public/images/other/filter_close.webp');
+        frame.addClass("show");
+    }
 }
 
 $(document).ready(function() {
 
     window.onresize = function() {
-        if (document.body.clientWidth < 800) {
+        if (document.body.clientWidth < 1020) {
             vm.seen = true;
 
         } else {

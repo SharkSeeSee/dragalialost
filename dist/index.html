@@ -12,6 +12,10 @@
 <body>
     <div id='app'>
         <div id='header' v-if="seen">
+        	<picture id="header-icon">
+                <source srcset="../public/images/other/Icon-MP-1.webp" type="image/webp">
+                <img src="../public/images/other/Icon-MP-1.png">
+            </picture>
             <select id="select-menu" v-model="selected" @change="selectMenuChange($event)">
                 <option value="0">人物</option>
                 <option value="1">真龙试炼</option>

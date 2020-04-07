@@ -379,7 +379,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     tdiv.appendChild(ndiv);
     //推荐龙
     var bdiv_1 = document.createElement('div');
-    bdiv_1.setAttribute('style', 'background-color:white;width:145px;height:120px;text-align:center;');
+    bdiv_1.setAttribute('style', 'background-color:white;width:9rem;height:7.5rem;text-align:center;');
 
     var div_1 = document.createElement('div');
     div_1.setAttribute('style', 'font-size:16px;text-align:left;');
@@ -388,7 +388,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     var div_dragon = document.createElement('div');
 
     var pic_1 = document.createElement('picture');
-    pic_1.setAttribute('style', 'width:100px;height:100px;');
+    pic_1.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     var source_1 = document.createElement('source');
 
@@ -401,7 +401,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     img_1.setAttribute('alt', dragons[keyDic.dragon].name);
     img_1.setAttribute('title', dragons[keyDic.dragon].name);
     img_1.setAttribute('loading', 'auto');
-    img_1.setAttribute('style', 'width:100px;height:100px;');
+    img_1.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     pic_1.appendChild(source_1);
     pic_1.appendChild(img_1);
@@ -418,7 +418,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     //推荐护符
     var bdiv_2 = document.createElement('div');
-    bdiv_2.setAttribute('style', 'background-color:white;width:290px;height:120px;text-align:left;');
+    bdiv_2.setAttribute('style', 'background-color:white;width:auto;height:7.5rem;text-align:left;');
 
     var div_2 = document.createElement('div');
     div_2.setAttribute('style', 'font-size:16px;');
@@ -428,10 +428,10 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     //1号护符
 
     var div_hf_1 = document.createElement('div');
-    div_hf_1.setAttribute('style', 'float:left;width:130px;text-align:center;');
+    div_hf_1.setAttribute('style', 'float:left;width:8.125rem;text-align:center;');
 
     var pic_2 = document.createElement('picture');
-    pic_2.setAttribute('style', 'width:100px;height:100px;');
+    pic_2.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     var source_2 = document.createElement('source');
 
@@ -444,7 +444,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     img_2.setAttribute('alt', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('title', wyrmprints[keyDic.hf1].name);
     img_2.setAttribute('loading', 'auto');
-    img_2.setAttribute('style', 'width:100px;height:100px;');
+    img_2.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     pic_2.appendChild(source_2);
     pic_2.appendChild(img_2);
@@ -458,10 +458,10 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     //2号护符
     var div_hf_2 = document.createElement('div');
-    div_hf_2.setAttribute('style', 'float:left;width:130px;text-align:center;margin-left:20px;');
+    div_hf_2.setAttribute('style', 'float:left;width:8.125rem;text-align:center;margin-left:1.25rem;');
 
     var pic_3 = document.createElement('picture');
-    pic_3.setAttribute('style', 'width:100px;height:100px;');
+    pic_3.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     var source_3 = document.createElement('source');
 
@@ -474,7 +474,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
     img_3.setAttribute('alt', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('title', wyrmprints[keyDic.hf2].name);
     img_3.setAttribute('loading', 'auto');
-    img_3.setAttribute('style', 'width:100px;height:100px;');
+    img_3.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
     pic_3.appendChild(source_3);
     pic_3.appendChild(img_3);
