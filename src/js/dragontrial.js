@@ -435,8 +435,6 @@ function picture_lazyload(isSupportWebp) {
     var scrollleft = $("#main").scrollLeft();
     var scrollwidth = $("#main").width();
 
-    console.log("width:" + (scrollleft + scrollwidth));
-
     $('.lazy').each(function(index, el) {
 
         var x = $(this).offset().left;

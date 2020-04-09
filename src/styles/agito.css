@@ -52,7 +52,7 @@ td {
     border: 1px solid #aaa;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
     html {
         font-size: 14px;
     }

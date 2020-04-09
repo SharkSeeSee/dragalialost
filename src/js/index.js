@@ -25,7 +25,7 @@ function addShowClass() {
 $(document).ready(function() {
 
     window.onresize = function() {
-        if (document.body.clientWidth < 1020) {
+        if (document.body.clientWidth <= 1044) {
             vm.seen = true;
 
         } else {
@@ -54,22 +54,20 @@ $(document).ready(function() {
         addShowClass();
     }
 
-    $(".menu-item").each(function(index, el) {
-        $(this).click(function(event) {
-            /* Act on the event */
-            switch (index) {
-                case 0:
-                    goToPage('/dragalialost/src/html/adventurers.html');
-                    break;
-                case 1:
-                    goToPage('/dragalialost/src/html/dragontrial.html');
-                    break;
-                case 2:
-                    goToPage('/dragalialost/src/html/agito.html');
-                    break;
-            }
-        });
-    });
+    vm.clickMenu = function(index) {
+        // body...
+        switch (index) {
+            case 0:
+                goToPage('/dragalialost/src/html/adventurers.html');
+                break;
+            case 1:
+                goToPage('/dragalialost/src/html/dragontrial.html');
+                break;
+            case 2:
+                goToPage('/dragalialost/src/html/agito.html');
+                break;
+        }
+    }
 
     if ($('#ifr1')[0].attachEvent) {
         $('#ifr1')[0].attachEvent("onload", function() {

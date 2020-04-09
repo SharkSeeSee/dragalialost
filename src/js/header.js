@@ -11,6 +11,9 @@ var vm = new Vue({
         },
         filterShow: function(el) {
             // body...
+        },
+        clickMenu: function(index) {
+
         }
     },
     watch: {
