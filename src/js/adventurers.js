@@ -8,11 +8,10 @@ import adventurers_3 from './adventurers_3.js';
 import '../styles/adventurers.css';
 
 var isWebp = false;
-var defaultPic = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQBAMAAAB8P++eAAAAHlBMVEXMzMyWlpaxsbHFxcW3t7ejo6O+vr6qqqqmpqatra3LZGLaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAY0lEQVRIie3MwQmAMAwF0BIpOEb4Lc3VGbKEV8EFenCSTiwUj1q86Ok/QiDk80MgIiL6jfYtNci7YJ/ruAVdC1AEJVrb63MwafaUXbLH6VgGja4GM4hhRtsGjT28jP9ERPSxE6UOCacylc9zAAAAAElFTkSuQmCC";
 //筛选角色
 function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRestriction, isBreak) {
     // body...
-    var filterResult = new Array();
+    var filterResult = {};
 
     if (raritys.length == 0) {
         raritys = ["5", "4", "3"];
@@ -75,11 +74,10 @@ function filterAll(adlist, raritys, elements, weapons, effects, resWords, isRest
 
 function searchInputText(filterArray, searchText) {
     if (searchText.length == 0) {
-
         return result;
     }
 
-    var filterResult = [];
+    var filterResult = {};
 
     for (var key in filterArray) {
         var pinyin = makePy(filterArray[key].name)[0].toLowerCase();
@@ -150,225 +148,8 @@ function resExpand(resWords) {
     return result;
 }
 
-var defaultImage = new Image();
-defaultImage.src = defaultPic;
-
-// 添加角色列表
-function add_item(list) {
-
-    var div1 = document.getElementById('role-list');
-
-    for (var key in list) {
-
-        var div2 = document.createElement("div");
-
-        div2.setAttribute('id', key);
-        div2.setAttribute('class', 'item-content');
-
-        div1.appendChild(div2);
-
-        //图
-        var div_left = document.createElement("div");
-        div_left.setAttribute('class', 'advs-item');
-
-        var button1 = document.createElement('picture');
-        button1.setAttribute('class', 'lazy');
-        button1.setAttribute('id', 'icon-' + key);
-
-        var source1 = document.createElement('source');
-
-        source1.setAttribute('srcset', defaultImage.src);
-        source1.setAttribute('data-src', '/dragalialost/public/images/adventures/' + list[key].image + '.webp');
-        source1.setAttribute('type', 'image/webp');
-
-        var img1 = document.createElement('img');
-
-        img1.setAttribute('src', defaultImage.src);
-        img1.setAttribute('data-src', '/dragalialost/public/images/adventures/' + list[key].image + '.png');
-        img1.setAttribute('alt', list[key].name);
-        img1.setAttribute('title', list[key].name);
-        img1.setAttribute('loading', 'auto');
-
-        button1.appendChild(source1);
-        button1.appendChild(img1);
-
-        div_left.appendChild(button1);
-
-        //文
-        var div_mid = document.createElement("div");
-        div_mid.setAttribute('style', 'width:140px;height:auto;margin-top:5px;');
-
-        var div3 = document.createElement("div");
-        var div4 = document.createElement("div");
-
-        div3.setAttribute('class', 'ads-name');
-        div3.setAttribute('style', 'font-weight:600;text-align: left;margin:5px;');
-        div3.innerText = list[key].name;
-
-        div4.setAttribute('class', 'res-name');
-        div4.setAttribute('style', 'text-align: left;margin:5px 5px 5px 5px;height:20px;font-size:14px;');
-        div4.innerText = list[key].res;
-
-        div_mid.appendChild(div3);
-        div_mid.appendChild(div4);
-
-        var div_ex = document.createElement("div");
-        //抗性 EX
-        if (list[key].ability1) {
-
-            div_ex.setAttribute('class', 'ex-list');
-            div_ex.setAttribute('style', 'width:100px;height:25px;display:flex;margin-left:1px;');
-
-            var div_ex_1 = document.createElement("div");
-            div_ex_1.setAttribute('class', 'ex-item');
-            div_ex_1.setAttribute('style', 'width:25px;height:25px;');
-
-            var ex_pic_1 = document.createElement('picture');
-            ex_pic_1.setAttribute('style', 'width:100%;height:100%;');
-            ex_pic_1.setAttribute('class', 'lazy');
-            ex_pic_1.setAttribute('id', list[key].ability1[0]);
-
-            var ex_source_1 = document.createElement('source');
-
-            ex_source_1.setAttribute('srcset', defaultImage.src);
-            ex_source_1.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability1[0] + '.webp');
-            ex_source_1.setAttribute('type', 'image/webp');
-            ex_source_1.setAttribute('style', 'width:100%;height:100%;');
-
-            var ex_img_1 = document.createElement('img');
-
-            ex_img_1.setAttribute('src', defaultImage.src);
-            ex_img_1.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability1[0] + '.png');
-            ex_img_1.setAttribute('alt', '能力1');
-            ex_img_1.setAttribute('title', list[key].ability1[1]);
-            ex_img_1.setAttribute('loading', 'auto');
-            ex_img_1.setAttribute('style', 'width:100%;height:100%;');
-
-            ex_pic_1.appendChild(ex_source_1);
-            ex_pic_1.appendChild(ex_img_1);
-            div_ex_1.appendChild(ex_pic_1);
-
-            div_ex.appendChild(div_ex_1);
-        }
-
-        if (list[key].ability2) {
-            var div_ex_2 = document.createElement("div");
-            div_ex_2.setAttribute('class', 'ex-item');
-            div_ex_2.setAttribute('style', 'width:25px;height:25px;margin-left:5px;');
-
-            var ex_pic_2 = document.createElement('picture');
-            ex_pic_2.setAttribute('style', 'width:100%;height:100%;');
-            ex_pic_2.setAttribute('class', 'lazy');
-            ex_pic_2.setAttribute('id', list[key].ability2[0]);
-
-            var ex_source_2 = document.createElement('source');
-
-            ex_source_2.setAttribute('srcset', defaultImage.src);
-            ex_source_2.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability2[0] + '.webp');
-            ex_source_2.setAttribute('type', 'image/webp');
-            ex_source_2.setAttribute('style', 'width:100%;height:100%;');
-
-            var ex_img_2 = document.createElement('img');
-
-            ex_img_2.setAttribute('src', defaultImage.src);
-            ex_img_2.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability2[0] + '.png');
-            ex_img_2.setAttribute('alt', '能力2');
-            ex_img_2.setAttribute('title', list[key].ability2[1]);
-            ex_img_2.setAttribute('loading', 'auto');
-            ex_img_2.setAttribute('style', 'width:100%;height:100%;');
-
-            ex_pic_2.appendChild(ex_source_2);
-            ex_pic_2.appendChild(ex_img_2);
-            div_ex_2.appendChild(ex_pic_2);
-
-            div_ex.appendChild(div_ex_2);
-        }
-
-        if (list[key].ability3 && list[key].ability3[0].length > 0) {
-            var div_ex_3 = document.createElement("div");
-            div_ex_3.setAttribute('class', 'ex-item');
-            div_ex_3.setAttribute('style', 'width:25px;height:25px;margin-left:5px;');
-
-            var ex_pic_3 = document.createElement('picture');
-            ex_pic_3.setAttribute('style', 'width:100%;height:100%;');
-            ex_pic_3.setAttribute('class', 'lazy');
-            ex_pic_3.setAttribute('id', list[key].ability3[0]);
-
-            var ex_source_3 = document.createElement('source');
-
-            ex_source_3.setAttribute('srcset', defaultImage.src);
-            ex_source_3.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability3[0] + '.webp');
-            ex_source_3.setAttribute('type', 'image/webp');
-            ex_source_3.setAttribute('style', 'width:100%;height:100%;');
-
-            var ex_img_3 = document.createElement('img');
-
-            ex_img_3.setAttribute('src', defaultImage.src);
-            ex_img_3.setAttribute('data-src', '/dragalialost/public/images/other/' + list[key].ability3[0] + '.png');
-            ex_img_3.setAttribute('alt', '能力3');
-            ex_img_3.setAttribute('title', list[key].ability3[1]);
-            ex_img_3.setAttribute('loading', 'auto');
-            ex_img_3.setAttribute('style', 'width:100%;height:100%;');
-
-            ex_pic_3.appendChild(ex_source_3);
-            ex_pic_3.appendChild(ex_img_3);
-            div_ex_3.appendChild(ex_pic_3);
-
-            div_ex.appendChild(div_ex_3);
-        }
-
-        div_mid.appendChild(div_ex);
-
-        var div_right = document.createElement("div");
-        div_right.setAttribute('style', 'margin-top:5px;');
-
-        var div5 = document.createElement("div");
-        var div6 = document.createElement("div");
-
-        if (list[key].restriction) {
-            div5.setAttribute('class', 'restriction');
-            div5.setAttribute('style', 'width:40px;height:20px;background-color:red;border-radius:5px;font-size:14px;color:white;text-align:center;line-height:20px;');
-            div5.innerText = "限定";
-        } else {
-            div5.setAttribute('class', 'restriction');
-            div5.setAttribute('style', 'width:40px;height:20px;background-color:#0099FF;border-radius:5px;font-size:14px;color:white;text-align:center;line-height:20px;');
-            div5.innerText = "普池";
-        }
-
-        div_right.appendChild(div5);
-
-        if (list[key].maxlevel == 100) {
-            div6.setAttribute('class', 'maxlevel');
-            div6.setAttribute('style', 'width:40px;height:20px;background-color:red;border-radius:5px;font-size:14px;color:white;text-align:center;line-height:20px;margin-top:10px;');
-            div6.innerText = "70环";
-            div_right.appendChild(div6);
-        }
-
-        div2.appendChild(div_left);
-        div2.appendChild(div_mid);
-        div2.appendChild(div_right);
-    }
-    bindEvent(list, dragons, wyrmprints);
-    check_webp_feature(picture_lazyload);
-}
-
-//绑定按键
-function bindEvent(list) {
-    $(".item-content").unbind();
-
-    $(".item-content").each(function(index, el) {
-        el.onclick = function() {
-            var rid = $(this).attr('id');
-            swal({
-                text: list[rid].name + "    昵称:" + list[rid].nickname,
-                content: showAlertView(list[rid], dragons, wyrmprints),
-            });
-        }
-    });
-}
-
 //弹出框
-function showAlertView(keyDic, dragons, wyrmprints) {
+function showAlertView(ads) {
     // body...
     var tdiv = document.createElement('div');
 
@@ -392,14 +173,14 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_1 = document.createElement('source');
 
-    source_1.setAttribute('srcset', '/dragalialost/public/images/dragon/' + dragons[keyDic.dragon].icon + '.webp');
+    source_1.setAttribute('srcset', '/dragalialost/public/images/dragon/' + dragons[ads.dragon].icon + '.webp');
     source_1.setAttribute('type', 'image/webp');
 
     var img_1 = document.createElement('img');
 
-    img_1.setAttribute('src', '/dragalialost/public/images/dragon/' + dragons[keyDic.dragon].icon + '.png');
-    img_1.setAttribute('alt', dragons[keyDic.dragon].name);
-    img_1.setAttribute('title', dragons[keyDic.dragon].name);
+    img_1.setAttribute('src', '/dragalialost/public/images/dragon/' + dragons[ads.dragon].icon + '.png');
+    img_1.setAttribute('alt', dragons[ads.dragon].name);
+    img_1.setAttribute('title', dragons[ads.dragon].name);
     img_1.setAttribute('loading', 'auto');
     img_1.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
@@ -408,7 +189,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var div_d_text = document.createElement('div');
     div_d_text.setAttribute('style', 'text-align:center;');
-    div_d_text.innerText = dragons[keyDic.dragon].name;
+    div_d_text.innerText = dragons[ads.dragon].name;
 
     div_dragon.appendChild(pic_1);
     div_dragon.appendChild(div_d_text);
@@ -435,14 +216,14 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_2 = document.createElement('source');
 
-    source_2.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf1].img + '.webp');
+    source_2.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[ads.hf1].img + '.webp');
     source_2.setAttribute('type', 'image/webp');
 
     var img_2 = document.createElement('img');
 
-    img_2.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf1].img + '.png');
-    img_2.setAttribute('alt', wyrmprints[keyDic.hf1].name);
-    img_2.setAttribute('title', wyrmprints[keyDic.hf1].name);
+    img_2.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[ads.hf1].img + '.png');
+    img_2.setAttribute('alt', wyrmprints[ads.hf1].name);
+    img_2.setAttribute('title', wyrmprints[ads.hf1].name);
     img_2.setAttribute('loading', 'auto');
     img_2.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
@@ -451,7 +232,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var div_text_1 = document.createElement('div');
     div_text_1.setAttribute('style', 'text-align:center;');
-    div_text_1.innerText = wyrmprints[keyDic.hf1].name;
+    div_text_1.innerText = wyrmprints[ads.hf1].name;
 
     div_hf_1.appendChild(pic_2);
     div_hf_1.appendChild(div_text_1);
@@ -465,14 +246,14 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var source_3 = document.createElement('source');
 
-    source_3.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf2].img + '.webp');
+    source_3.setAttribute('srcset', '/dragalialost/public/images/hf/' + wyrmprints[ads.hf2].img + '.webp');
     source_3.setAttribute('type', 'image/webp');
 
     var img_3 = document.createElement('img');
 
-    img_3.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[keyDic.hf2].img + '.png');
-    img_3.setAttribute('alt', wyrmprints[keyDic.hf2].name);
-    img_3.setAttribute('title', wyrmprints[keyDic.hf2].name);
+    img_3.setAttribute('src', '/dragalialost/public/images/hf/' + wyrmprints[ads.hf2].img + '.png');
+    img_3.setAttribute('alt', wyrmprints[ads.hf2].name);
+    img_3.setAttribute('title', wyrmprints[ads.hf2].name);
     img_3.setAttribute('loading', 'auto');
     img_3.setAttribute('style', 'width:6.25rem;height:6.25rem;');
 
@@ -481,7 +262,7 @@ function showAlertView(keyDic, dragons, wyrmprints) {
 
     var div_text_2 = document.createElement('div');
     div_text_2.setAttribute('style', 'text-align:center;');
-    div_text_2.innerText = wyrmprints[keyDic.hf2].name;
+    div_text_2.innerText = wyrmprints[ads.hf2].name;
 
     div_hf_2.appendChild(pic_3);
     div_hf_2.appendChild(div_text_2);
@@ -510,7 +291,16 @@ export function initAds() {
     var isBreak = false;
     var result = [];
 
-    add_item(adventurers);
+    vm.adsList = adventurers;
+    check_webp_feature(picture_lazyload);
+
+    vm.bindEvent = function(ads) {
+        // body...
+        swal({
+            text: ads.name + "    昵称:" + ads.nickname,
+            content: showAlertView(ads),
+        });
+    }
 
     $("input[name='Rarity']").each(function(index, el) {
         $(this).on('change', function(event) {
@@ -521,9 +311,11 @@ export function initAds() {
                 var t = $.inArray($(this).attr('value'), rarityWords);
                 rarityWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result);
+
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
+
         });
     });
 
@@ -536,9 +328,9 @@ export function initAds() {
                 var t = $.inArray($(this).attr('value'), elementWords);
                 elementWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result);
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         });
     });
 
@@ -551,9 +343,9 @@ export function initAds() {
                 var t = $.inArray($(this).attr('value'), weaponWords);
                 weaponWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result);
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         });
     });
 
@@ -565,9 +357,9 @@ export function initAds() {
                 var t = $.inArray($(this).attr('value'), effectWords);
                 effectWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result);
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         });
     });
 
@@ -579,26 +371,26 @@ export function initAds() {
                 var t = $.inArray($(this).attr('value'), resWords);
                 resWords.splice(t, 1);
             }
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result);
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         });
     });
 
     $("#checkbox_other_5").click(function(event) {
         /* Act on the event */
         isRes = $(this).is(':checked');
-        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-        $('#role-list').empty();
-        add_item(result);
+        vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+        $("#role-list picture").attr('class', 'lazy');
+        check_webp_feature(picture_lazyload);
     });
 
     $("#checkbox_other_6").click(function(event) {
         /* Act on the event */
         isBreak = $(this).is(':checked');
-        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-        $('#role-list').empty();
-        add_item(result);
+        vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+        $("#role-list picture").attr('class', 'lazy');
+        check_webp_feature(picture_lazyload);
     });
 
     $("#searchInput").on('input', function(event) {
@@ -606,14 +398,15 @@ export function initAds() {
 
         /* Act on the event */
         if ($(this).val().length == 0) {
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            $('#role-list').empty();
-            add_item(result, dragons, wyrmprints);
+            vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         } else {
-            result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-            result = searchInputText(result, $(this).val());
-            $('#role-list').empty();
-            add_item(result);
+            var arr = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+            arr = searchInputText(arr, $(this).val());
+            vm.adsList = arr;
+            $("#role-list picture").attr('class', 'lazy');
+            check_webp_feature(picture_lazyload);
         }
 
     });
@@ -624,9 +417,9 @@ export function initAds() {
             return;
         }
         $("#searchInput").val("");
-        result = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
-        $('#role-list').empty();
-        add_item(result);
+        vm.adsList = filterAll(adventurers, rarityWords, elementWords, weaponWords, effectWords, resWords, isRes, isBreak);
+        $("#role-list picture").attr('class', 'lazy');
+        check_webp_feature(picture_lazyload);
     });
 }
 
@@ -690,7 +483,7 @@ function picture_lazyload(isSupportWebp) {
                     tempImage.src = $(this).children('img').attr("data-src");
                     tempImage.onload = function() {
                         imageCacheArray[keyID] = tempImage;
-                        children_img.attr('srcset', tempImage.src);
+                        children_img.attr('src', tempImage.src);
                     }
                 }
             }

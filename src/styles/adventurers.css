@@ -56,6 +56,50 @@ div {
     cursor: pointer;
 }
 
+.ads-name {
+    font-weight: 600;
+    text-align: left;
+    margin: 5px;
+}
+
+.res-name {
+    text-align: left;
+    margin: 5px 5px 5px 5px;
+    height: 20px;
+    font-size: 14px;
+}
+
+.ex-list {
+    width: 100px;
+    height: 25px;
+    display: flex;
+    margin-left: 1px;
+}
+
+.restriction {
+    width: 40px;
+    height: 20px;
+    background-color: #0099FF;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    /*line-height: 20px;*/
+
+}
+
+.maxlevel {
+    width: 40px;
+    height: 20px;
+    background-color: red;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
 .advs-item picture img {
     width: 90px;
     height: auto;

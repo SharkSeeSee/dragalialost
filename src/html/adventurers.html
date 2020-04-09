@@ -6,328 +6,191 @@
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>人物</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" async></script>
-    <script src="/dragalialost/dist/adventurer.bundle.js"></script>
+    <script src="/dragalialost/src/js/pinyin.js" ></script>
+    <script src="/dragalialost/dist/adventurer.bundle.js" rel="preload"></script>
 </head>
 
 <body>
-    <div id='role-list'>
-    </div>
-    <div class="options">
-        <div class="search">
-            <input type="text" placeholder="请输入名字..." name="" id="searchInput" value="" />
-            <button id='clearButton'>clear</button>
+    <div id="app">
+        <div id='role-list'>
+            <template v-for="(ads,i) in adsList">
+                <div class="item-content" @click="bindEvent(ads)">
+                    <div class="advs-item">
+                        <picture class="lazy" v-bind:id="stepIcon(ads.rid)">
+                            <source v-bind:srcset="defaultIMG()" v-bind:data-src="showIconImage(ads)" type="image/webp">
+                            <img v-bind:src="defaultIMG()" v-bind:data-src="showIconImage(ads)">
+                        </picture>
+                    </div>
+                    <div style="width:140px;height:auto;margin-top:5px;">
+                        <div class="ads-name">{{ads.name}}</div>
+                        <div class="res-name">{{ads.res}}</div>
+                        <div class="ex-list">
+                            <div class="ex-item" style="width:25px;height:25px;">
+                                <picture class="lazy" v-bind:id="ads.ability1[0]">
+                                    <source v-bind:srcset="defaultIMG()" v-bind:data-src="showAblityImage(ads,0,0)" type="image/webp">
+                                    <img v-bind:src="defaultIMG()" v-bind:data-src="showAblityImage(ads,0,1)" v-bind:title="ads.ability1[1]" style="width:100%;height:100%;">
+                                </picture>
+                            </div>
+                            <div class="ex-item" style="width:25px;height:25px;">
+                                <picture class="lazy" v-bind:id="ads.ability2[0]">
+                                    <source v-bind:srcset="defaultIMG()" v-bind:data-src="showAblityImage(ads,1,0)" type="image/webp">
+                                    <img v-bind:src="defaultIMG()" v-bind:data-src="showAblityImage(ads,1,1)" v-bind:title="ads.ability2[1]" style="width:100%;height:100%;">
+                                </picture>
+                            </div>
+                            <div class="ex-item" style="width:25px;height:25px;" v-if="ads.ability3[0].length > 0">
+                                <picture class="lazy" v-bind:id="ads.ability3[0]">
+                                    <source v-bind:srcset="defaultIMG()" v-bind:data-src="showAblityImage(ads,2,0)" type="image/webp">
+                                    <img v-bind:src="defaultIMG()" v-bind:data-src="showAblityImage(ads,2,1)" v-bind:title="ads.ability3[1]" style="width:100%;height:100%;">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:5px;">
+                        <div class="restriction">{{resText(ads.restriction)}}</div>
+                        <div class="maxlevel" v-if="ads.maxlevel === 100">70环</div>
+                    </div>
+                </div>
+            </template>
         </div>
-        <div class="options-0">
-            <div class="options_star">
-                <div class="filerbox">
-                    <input id="checkbox_star_3" type="checkbox" name="Rarity" value="3">
-                    <label for="checkbox_star_3" title="3星">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/star_3.webp">
-                            <img src="/dragalialost/public/images/other/star_3.png" class="filer-img" alt="3" title="3星">
-                        </picture>
-                    </label>
+        <div class="options">
+            <div class="search">
+                <input type="text" placeholder="请输入名字..." name="" id="searchInput" value="" />
+                <button id='clearButton'>clear</button>
+            </div>
+            <div class="options-0">
+                <div class="options_star">
+                    <template v-for="rarity in raritys">
+                        <div class="filerbox">
+                            <input v-bind:id="rarity.fid" type="checkbox" name="Rarity" v-bind:value="rarity.value">
+                            <label v-bind:for="rarity.fid" v-bind:title="rarity.title">
+                                <picture class="filer-img">
+                                    <source v-bind:srcset="rarity.img0">
+                                    <img v-bind:src="rarity.img1" class="filer-img" v-bind:alt="rarity.title" v-bind:title="rarity.title">
+                                </picture>
+                            </label>
+                        </div>
+                    </template>
                 </div>
-                <div class="filerbox">
-                    <input id="checkbox_star_4" type="checkbox" name="Rarity" value="4">
-                    <label for="checkbox_star_4" title="4星">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/star_4.webp">
-                            <img src="/dragalialost/public/images/other/star_4.png" class="filer-img" alt="4" title="4星">
-                        </picture>
-                    </label>
+                <div class="options_element">
+                    <template v-for="element in elements">
+                        <div class="filerbox">
+                            <input v-bind:id="element.fid" type="checkbox" name="Element" v-bind:value="element.value">
+                            <label v-bind:for="element.fid" v-bind:title="element.title">
+                                <picture class="filer-img">
+                                    <source v-bind:srcset="element.img0">
+                                    <img v-bind:src="element.img1" class="filer-img" v-bind:alt="element.title" v-bind:title="element.title">
+                                </picture>
+                            </label>
+                        </div>
+                    </template>
                 </div>
-                <div class="filerbox">
-                    <input id="checkbox_star_5" type="checkbox" name="Rarity" value="5">
-                    <label for="checkbox_star_5" title="5星">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/star_5.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/star_5.png" class="filer-img" alt="5" title="5星">
-                        </picture>
-                    </label>
+                <div class="options_weapon">
+                    <template v-for="weapon in weapons">
+                        <div class="filerbox">
+                            <input v-bind:id="weapon.fid" type="checkbox" name="Weapon" v-bind:value="weapon.value">
+                            <label v-bind:for="weapon.fid" v-bind:title="weapon.title">
+                                <picture class="filer-img">
+                                    <source v-bind:srcset="weapon.img0">
+                                    <img v-bind:src="weapon.img1" class="filer-img" v-bind:alt="weapon.title" v-bind:title="weapon.title">
+                                </picture>
+                            </label>
+                        </div>
+                    </template>
+                </div>
+                <div class="options_res">
+                    <template v-for="res in resistances">
+                        <div class="filerbox">
+                            <input v-bind:id="res.fid" type="checkbox" name="Resistance" v-bind:value="res.value">
+                            <label v-bind:for="res.fid" v-bind:title="res.title">
+                                <picture class="filer-img">
+                                    <source v-bind:srcset="res.img0">
+                                    <img v-bind:src="res.img1" class="filer-img" v-bind:alt="res.title" v-bind:title="res.title">
+                                </picture>
+                            </label>
+                        </div>
+                    </template>
                 </div>
             </div>
-            <div class="options_element">
-                <div class="filerbox">
-                    <input id="checkbox_element_0" type="checkbox" name="Element" value="Fire">
-                    <label for="checkbox_element_0" title="火">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Element_Fire.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Element_Fire.png" class="filer-img" alt="Fire" title="火">
-                        </picture>
-                    </label>
+            <div class="options-1">
+                <div class="effect">
+                    <div style="font-size: 18px;font-weight: bold;">技能特效</div>
+                    <div>
+                        <input id="checkbox_effect_1" type="checkbox" name="skilleffect" value="Poison">
+                        <label for="checkbox_effect_1" class="other" title="中毒特效">
+                            中毒特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_2" type="checkbox" name="skilleffect" value="Burn">
+                        <label for="checkbox_effect_2" class="other" title="烧伤特效">
+                            烧伤特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_3" type="checkbox" name="skilleffect" value="Paralysis">
+                        <label for="checkbox_effect_3" class="other" title="麻痹特效">
+                            麻痹特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_4" type="checkbox" name="skilleffect" value="Freeze">
+                        <label for="checkbox_effect_4" class="other" title="破防特效">
+                            冰冻特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_5" type="checkbox" name="skilleffect" value="Blind">
+                        <label for="checkbox_effect_5" class="other" title="致盲特效">
+                            致盲特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_6" type="checkbox" name="skilleffect" value="Bog">
+                        <label for="checkbox_effect_6" class="other" title="湿身特效">
+                            湿身特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_7" type="checkbox" name="skilleffect" value="Frostbite">
+                        <label for="checkbox_effect_7" class="other" title="冻伤特效">
+                            冻伤特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_8" type="checkbox" name="skilleffect" value="Sleep">
+                        <label for="checkbox_effect_8" class="other" title="睡眠特效">
+                            睡眠特效
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_effect_9" type="checkbox" name="skilleffect" value="Stun">
+                        <label for="checkbox_effect_9" class="other" title="昏迷特效">
+                            昏迷特效
+                        </label>
+                    </div>
                 </div>
-                <div class="filerbox">
-                    <input id="checkbox_element_1" type="checkbox" name="Element" value="Water">
-                    <label for="checkbox_element_1" title="水">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Element_Water.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Element_Water.png" class="filer-img" alt="Water" title="水">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_element_2" type="checkbox" name="Element" value="Wind">
-                    <label for="checkbox_element_2" title="风">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Element_Wind.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Element_Wind.png" class="filer-img" alt="Wind" title="风">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_element_3" type="checkbox" name="Element" value="Light">
-                    <label for="checkbox_element_3" title="光">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Element_Light.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Element_Light.png" class="filer-img" alt="Light" title="光">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_element_4" type="checkbox" name="Element" value="Shadow">
-                    <label for="checkbox_element_4" title="暗">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Element_Shadow.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Element_Shadow.png" class="filer-img" alt="Shadow" title="暗">
-                        </picture>
-                    </label>
-                </div>
-            </div>
-            <div class="options_weapon">
-                <div class="filerbox">
-                    <input id="checkbox_weapon_0" type="checkbox" name="Weapon" value="Sword">
-                    <label for="checkbox_weapon_0" title="剑">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Sword.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Sword.png" class="filer-img" alt="Sword" title="剑">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_1" type="checkbox" name="Weapon" value="Blade">
-                    <label for="checkbox_weapon_1" title="刀">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Blade.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Blade.png" class="filer-img" alt="Blade" title="刀">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_2" type="checkbox" name="Weapon" value="Dagger">
-                    <label for="checkbox_weapon_2" title="匕">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Dagger.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Dagger.png" class="filer-img" alt="Dagger" title="匕">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_3" type="checkbox" name="Weapon" value="Axe">
-                    <label for="checkbox_weapon_3" title="斧">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Axe.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Axe.png" class="filer-img" alt="Axe" title="斧">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_4" type="checkbox" name="Weapon" value="Lance">
-                    <label for="checkbox_weapon_4" title="枪">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Lance.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Lance.png" class="filer-img" alt="Lance" title="枪">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_5" type="checkbox" name="Weapon" value="Bow">
-                    <label for="checkbox_weapon_5" title="弓">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Bow.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Bow.png" class="filer-img" alt="Bow" title="弓">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_6" type="checkbox" name="Weapon" value="Wand">
-                    <label for="checkbox_weapon_6" title="魔杖">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Wand.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Wand.png" class="filer-img" alt="Wand" title="魔杖">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_weapon_7" type="checkbox" name="Weapon" value="Staff">
-                    <label for="checkbox_weapon_7" title="法杖">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/Weapon_Staff.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/Weapon_Staff.png" class="filer-img" alt="Staff" title="法杖">
-                        </picture>
-                    </label>
-                </div>
-            </div>
-            <div class="options_res">
-                <div class="filerbox">
-                    <input id="checkbox_res_0" type="checkbox" name="Resistance" value="ablilities_101">
-                    <label for="checkbox_res_0" title="睡眠抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_101.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_101.png" class="filer-img" alt="睡眠抗性" title="睡眠抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_1" type="checkbox" name="Resistance" value="ablilities_102">
-                    <label for="checkbox_res_1" title="昏迷抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_102.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_102.png" class="filer-img" alt="昏迷抗性" title="昏迷抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_2" type="checkbox" name="Resistance" value="ablilities_105">
-                    <label for="checkbox_res_2" title="烧伤抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_105.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_105.png" class="filer-img" alt="烧伤抗性" title="烧伤抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_3" type="checkbox" name="Resistance" value="ablilities_109">
-                    <label for="checkbox_res_3" title="湿身抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_109.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_109.png" class="filer-img" alt="湿身抗性" title="湿身抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_4" type="checkbox" name="Resistance" value="ablilities_110">
-                    <label for="checkbox_res_4" title="冰冻抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_110.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_110.png" class="filer-img" alt="冰冻抗性" title="冰冻抗性">
-                        </picture class="filer-img">
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_5" type="checkbox" name="Resistance" value="ablilities_114">
-                    <label for="checkbox_res_5" title="诅咒抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_114.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_114.png" class="filer-img" alt="诅咒抗性" title="诅咒抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_6" type="checkbox" name="Resistance" value="ablilities_115">
-                    <label for="checkbox_res_6" title="中毒抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_115.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_115.png" class="filer-img" alt="中毒抗性" title="中毒抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_7" type="checkbox" name="Resistance" value="ablilities_118">
-                    <label for="checkbox_res_7" title="麻痹抗性">
-                        <picture class="filer-img">
-                            <source srcset="/dragalialost/public/images/other/ablilities_118.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_118.png" class="filer-img" alt="麻痹抗性" title="麻痹抗性">
-                        </picture>
-                    </label>
-                </div>
-                <div class="filerbox">
-                    <input id="checkbox_res_8" type="checkbox" name="Resistance" value="ablilities_119">
-                    <label for="checkbox_res_8" title="黑暗抗性">
-                        <picture>
-                            <source srcset="/dragalialost/public/images/other/ablilities_119.webp" type="image/webp">
-                            <img src="/dragalialost/public/images/other/ablilities_119.png" class="filer-img" alt="黑暗抗性" title="黑暗抗性">
-                        </picture>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="options-1">
-            <div class="effect">
-                <div style="font-size: 18px;font-weight: bold;">技能特效</div>
-                <div>
-                    <input id="checkbox_effect_1" type="checkbox" name="skilleffect" value="Poison">
-                    <label for="checkbox_effect_1" class="other" title="中毒特效">
-                        中毒特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_2" type="checkbox" name="skilleffect" value="Burn">
-                    <label for="checkbox_effect_2" class="other" title="烧伤特效">
-                        烧伤特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_3" type="checkbox" name="skilleffect" value="Paralysis">
-                    <label for="checkbox_effect_3" class="other" title="麻痹特效">
-                        麻痹特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_4" type="checkbox" name="skilleffect" value="Freeze">
-                    <label for="checkbox_effect_4" class="other" title="破防特效">
-                        冰冻特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_5" type="checkbox" name="skilleffect" value="Blind">
-                    <label for="checkbox_effect_5" class="other" title="致盲特效">
-                        致盲特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_6" type="checkbox" name="skilleffect" value="Bog">
-                    <label for="checkbox_effect_6" class="other" title="湿身特效">
-                        湿身特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_7" type="checkbox" name="skilleffect" value="Frostbite">
-                    <label for="checkbox_effect_7" class="other" title="冻伤特效">
-                        冻伤特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_8" type="checkbox" name="skilleffect" value="Sleep">
-                    <label for="checkbox_effect_8" class="other" title="睡眠特效">
-                        睡眠特效
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_effect_9" type="checkbox" name="skilleffect" value="Stun">
-                    <label for="checkbox_effect_9" class="other" title="昏迷特效">
-                        昏迷特效
-                    </label>
-                </div>
-            </div>
-            <div class="other">
-                <div style="font-size: 18px;font-weight: bold;">其他</div>
-                <div>
-                    <input id="checkbox_other_5" type="checkbox" name="other1" value="restriction">
-                    <label for="checkbox_other_5" class="other" title="限定">
-                        限定
-                    </label>
-                </div>
-                <div>
-                    <input id="checkbox_other_6" type="checkbox" name="other2" value="breakthrough">
-                    <label for="checkbox_other_6" class="other" title="70环">
-                        70环
-                    </label>
+                <div class="other">
+                    <div style="font-size: 18px;font-weight: bold;">其他</div>
+                    <div>
+                        <input id="checkbox_other_5" type="checkbox" name="other1" value="restriction">
+                        <label for="checkbox_other_5" class="other" title="限定">
+                            限定
+                        </label>
+                    </div>
+                    <div>
+                        <input id="checkbox_other_6" type="checkbox" name="other2" value="breakthrough">
+                        <label for="checkbox_other_6" class="other" title="70环">
+                            70环
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/dragalialost/src/js/filterData.js"></script>
+    <script src="/dragalialost/dist/adventurer.bundle.js"></script>
 </body>
 
 </html>
